@@ -10,9 +10,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_19_130541) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_19_143054) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "games", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.bigint "liked_id", null: false
+    t.bigint "liker_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["liked_id"], name: "index_likes_on_liked_id"
+    t.index ["liker_id"], name: "index_likes_on_liker_id"
+  end
+
+  create_table "matches", force: :cascade do |t|
+    t.bigint "like_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["like_id"], name: "index_matches_on_like_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.bigint "match_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["match_id"], name: "index_messages_on_match_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "user_games", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "game_id", null: false
+    t.integer "level"
+    t.string "mood"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_user_games_on_game_id"
+    t.index ["user_id"], name: "index_user_games_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -22,8 +64,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_19_130541) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "username"
+    t.date "birthdate"
+    t.string "gender"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "likes", "users", column: "liked_id"
+  add_foreign_key "likes", "users", column: "liker_id"
+  add_foreign_key "matches", "likes"
+  add_foreign_key "messages", "matches"
+  add_foreign_key "messages", "users"
+  add_foreign_key "user_games", "games"
+  add_foreign_key "user_games", "users"
 end
