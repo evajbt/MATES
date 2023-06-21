@@ -1,0 +1,14 @@
+<h1>Add User Game</h1>
+
+<%= form_with(model: [@user, @user_game], url: user_user_games_path(@user), method: :post) do |form| %>
+  <%= form.label :game_id %>
+  <%= form.collection_select :game_id, @games, :id, :name %>
+
+  <%= form.label :level %>
+  <%= form.number_field :level %>
+
+  <%= form.label :mood %>
+  <%= form.select :mood, ['Chill', 'Try hard', 'Competitive'] %>
+
+  <%= form.submit "Add Game" %>
+<% end %>
