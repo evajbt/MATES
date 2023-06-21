@@ -5,3 +5,143 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+UserGame.destroy_all
+Like.destroy_all
+Match.destroy_all
+User.destroy_all
+Game.destroy_all
+
+puts "Deleting all"
+
+puts "Creating User list"
+
+users = User.create!([
+  {
+    username: "Jean",
+    birthdate: Date.new(1980, 2, 28),
+    gender: "masculine",
+    email: "jean@mail.com",
+    password: "123456789"
+  },
+  {
+    username: "Anette",
+    birthdate: Date.new(2001, 5, 15),
+    gender: "feminine",
+    email: "anette@mail.com",
+    password: "123456789"
+  },
+  {
+    username: "Paul",
+    birthdate: Date.new(1990, 5, 17),
+    gender: "masculine",
+    email: "paul@mail.com",
+    password: "123456789"
+  },
+  {
+    username: "Marie",
+    birthdate: Date.new(1991, 5, 22),
+    gender: "feminine",
+    email: "marie@mail.com",
+    password: "123456789"
+  }
+])
+
+puts "Created #{users.count} users"
+
+puts "Creating Game list"
+
+games = Game.create!([
+  {
+    name: "Valorant"
+  },
+  {
+    name: "League of Legends"
+  },
+  {
+    name: "Teamfight Tactics"
+  },
+  {
+    name: "Legends of Runeterra"
+  }
+])
+
+puts "Created #{games.count} games"
+
+puts "Creating user_games list"
+
+user_games = UserGame.create!([
+  {
+    user: users[1],
+    game: games[1],
+    mood: "Chill",
+    level: "5"
+  },
+  {
+    user: users[1],
+    game: games[2],
+    mood: "try hard",
+    level: "4"
+  },
+  {
+    user: users[2],
+    game: games[3],
+    mood: "Chill",
+    level: "5"
+  },
+  {
+    user: users[3],
+    game: games[1],
+    mood: "Chill",
+    level: "5"
+  },
+  {
+    user: users[3],
+    game: games[2],
+    mood: "try hard",
+    level: "4"
+  },
+  {
+    user: users[3],
+    game: games[0],
+    mood: "Chill",
+    level: "2"
+  }
+])
+
+puts "Created #{user_games.count} user_games"
+
+puts "Creating likes list"
+
+likes = Like.create!([
+  {
+    liked: users[1],
+    liker: users[2],
+  },
+  {
+    liked: users[3],
+    liker: users[1],
+  },
+  {
+    liked: users[2],
+    liker: users[3],
+  }
+])
+
+puts "Created #{likes.count} likes"
+
+puts "Creating matches list"
+
+matches = Match.create!([
+  {
+    like: likes[0],
+  },
+  {
+    like: likes[1],
+  },
+  {
+    like: likes[2],
+  }
+])
+
+puts "Created #{matches.count} matches"
