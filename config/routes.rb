@@ -7,5 +7,7 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :users do
     resources :user_games, only: [:new, :create, :edit, :update, :destroy]
+    resources :likes, only: [:create]
+    resources :matches, only: [:index]
   end
 end
