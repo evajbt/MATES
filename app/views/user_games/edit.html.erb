@@ -1,0 +1,11 @@
+<h1>Edit User Game</h1>
+
+<%= form_with(model: @user_game, url: user_user_game_path(@user_game), method: :patch) do |form| %>
+  <%= form.label :level %>
+  <%= form.number_field :level %>
+
+  <%= form.label :mood %>
+  <%= form.select :mood, ['Chill', 'Try hard', 'Competitive'] %>
+
+  <%= form.submit "Update" %>
+<% end %>
