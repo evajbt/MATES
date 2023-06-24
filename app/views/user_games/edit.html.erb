@@ -1,6 +1,6 @@
 <h1>Edit User Game</h1>
 
-<%= form_with(model: @user_game, url: user_user_game_path(@user_game), method: :patch) do |form| %>
+<%= form_with(model: @user_game, url: profile_user_game_path(@user_game), method: :patch) do |form| %>
   <%= form.label :level %>
   <%= form.number_field :level %>
 

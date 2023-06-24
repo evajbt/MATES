@@ -1,2 +1,27 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+ <%= link_to "Search", search_profiles_path %>
+
+<%= form_with(url: search_profiles_path, method: :get) do |form| %>
+  <div>
+    <%= form.label :game_id, "ID du jeu" %>
+    <%= form.number_field :game_id %>
+  </div>
+
+  <div>
+    <%= form.label :level, "Level" %>
+    <%= form.number_field :level %>
+  </div>
+
+  <div>
+    <%= form.label :mood, "Mood" %>
+    <%= form.text_field :mood %>
+  </div>
+
+  <div>
+    <%= form.label :gender, "Gender" %>
+    <%= form.text_field :gender %>
+  </div>
+
+  <%= form.submit "Rechercher" %>
+<% end %>

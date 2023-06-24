@@ -5,8 +5,11 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  resources :users do
+  resources :profiles do
     resources :user_games, only: [:new, :create, :edit, :update, :destroy]
+    collection do
+      get 'search', to: 'user_games#search', as: 'search'
+    end
     resources :likes, only: [:create]
     resources :matches, only: [:index]
   end
