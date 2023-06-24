@@ -8,7 +8,7 @@
 
 UserGame.destroy_all
 Match.destroy_all
-Like.destroy_allda
+Like.destroy_all
 User.destroy_all
 Game.destroy_all
 
