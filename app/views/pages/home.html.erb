@@ -4,8 +4,8 @@
 
 <%= form_with(url: search_profiles_path, method: :get) do |form| %>
   <div>
-    <%= form.label :game_id, "ID du jeu" %>
-    <%= form.number_field :game_id %>
+    <%= form.label :name, "Nom du jeu" %>
+    <%= form.text_field :name %>
   </div>
 
   <div>
