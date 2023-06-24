@@ -7,8 +7,8 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 UserGame.destroy_all
-Like.destroy_all
 Match.destroy_all
+Like.destroy_allda
 User.destroy_all
 Game.destroy_all
 
