@@ -1,6 +1,6 @@
 <h1>Add User Game</h1>
 
-<%= form_with(model: [@user, @user_game], url: user_user_games_path(@user), method: :post) do |form| %>
+<%= form_with(model: [@profile, @user_game], url: profile_user_games_path(@profile), method: :post) do |form| %>
   <%= form.label :game_id %>
   <%= form.collection_select :game_id, @games, :id, :name %>
 

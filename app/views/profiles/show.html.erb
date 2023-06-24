@@ -1,0 +1,36 @@
+<h1>User Details</h1>
+
+<p>
+  <strong>Username:</strong> <%= @profile.username %>
+</p>
+
+<p>
+  <strong>Birthdate:</strong> <%= @profile.birthdate %>
+</p>
+
+<p>
+  <strong>Gender:</strong> <%= @profile.gender %>
+</p>
+
+<p>
+  <strong>Email:</strong> <%= @profile.email %>
+</p>
+
+<h2>User Games</h2>
+
+<% @user_games.each do |user_game| %>
+  <p>
+    <strong>Game:</strong> <%= user_game.game.name %>
+  </p>
+  <p>
+    <strong>Mood:</strong> <%= user_game.mood %>
+  </p>
+  <p>
+    <strong>Level:</strong> <%= user_game.level %>
+  </p>
+  <%= link_to "Edit", edit_profile_user_game_path(@profile, user_game), class: 'btn btn-primary' %>
+  <%= button_to "Delete", profile_user_game_path(@profile, user_game), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-warning' %>
+
+  <hr>
+<% end %>
+<%= link_to "Add Game", new_profile_user_game_path(@profile) %>

@@ -1,0 +1,14 @@
+
+
+<% if @search_results.empty? %>
+<p>No mates found for you</p>
+<% else %>
+<% @search_results.each do |search_result| %>
+<%= search_result.game %>
+<%= search_result.level %>
+<%= search_result.mood %>
+<%= search_result.user.username %>
+<%= search_result.user.birthdate %>
+<%= search_result.user.gender %>
+<% end %>
+<% end %>
