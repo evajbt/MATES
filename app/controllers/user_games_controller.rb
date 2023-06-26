@@ -42,7 +42,9 @@ class UserGamesController < ApplicationController
     # Récupérer les jeux associés au profil
     @user_games = @profile.user_games
     # Effectuer la recherche en utilisant les paramètres de user_game
-    @search_results = User.joins(user_games: :game).where(user_games: { level: search_params[:level], mood: search_params[:mood] }, gender: search_params[:gender], games: { name: search_params[:name] })
+    @search_results = User.joins(user_games: :game)
+                          .where(user_games: { level: search_params[:level], mood: search_params[:mood] }, gender: search_params[:gender], games: { name: search_params[:name] })
+                          .where.not(id: @profile.id)
   end
 
   private
@@ -54,5 +56,4 @@ class UserGamesController < ApplicationController
   def search_params
     params.permit(:name, :level, :mood, :gender)
   end
-
 end
