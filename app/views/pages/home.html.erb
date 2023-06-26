@@ -15,12 +15,12 @@
 
   <div>
     <%= form.label :mood, "Mood" %>
-    <%= form.text_field :mood %>
+    <%= form.select :mood, ['Chill', 'Try hard', 'Competitive'] %>
   </div>
 
   <div>
     <%= form.label :gender, "Gender" %>
-    <%= form.text_field :gender %>
+    <%= form.select :gender, ['masculine', 'feminine'] %>
   </div>
 
   <%= form.submit "Rechercher" %>

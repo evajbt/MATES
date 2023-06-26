@@ -80,7 +80,7 @@ user_games = UserGame.create!([
   {
     user: users[1],
     game: games[2],
-    mood: "try hard",
+    mood: "Try hard",
     level: "4"
   },
   {
@@ -98,7 +98,7 @@ user_games = UserGame.create!([
   {
     user: users[3],
     game: games[2],
-    mood: "try hard",
+    mood: "Try hard",
     level: "4"
   },
   {
