@@ -1,0 +1,7 @@
+<%# app>views>matches>index.html.erb %>
+<% @matches.each do |match| %>
+  <p>
+    Match with <%= match.user.username %>
+    <%= link_to 'Start Chat', conversation_path(match.conversation) %>
+  </p>
+<% end %>

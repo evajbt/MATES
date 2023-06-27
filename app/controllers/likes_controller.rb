@@ -13,6 +13,8 @@ class LikesController < ApplicationController
     if liked_user.likes.exists?(liked_user: current_user)
       # Si c'est le cas, créer une correspondance (match) entre les utilisateurs
       Match.create(user1: current_user, user2: liked_user)
+      # Si c'est un match, créer une conversation pour les deux utilisateurs
+      @conversation = Conversation.create(liker_id: current_user.id, liked_id: liked_user.id)
     end
   end
 end
