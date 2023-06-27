@@ -6,11 +6,13 @@ class LikesController < ApplicationController
     if Like.exists?(liker: current_user, liked: liked_user)
       existing_like = Like.find_by(liker: current_user, liked: liked_user)
       @match = Match.create(like: existing_like)
+      redirect_to profile_match_path(params[:profile_id], @match.id), notice: "User matched successfully."
     else
       @like = current_user.given_likes.create(liked: liked_user)
+      redirect_to search_profiles_path, notice: "User liked successfully."
     end
 
-    redirect_to search_profiles_path, notice: "User liked successfully."
+    # redirect_to search_profiles_path, notice: "User liked successfully."
   end
 end
 
