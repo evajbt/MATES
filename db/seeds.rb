@@ -6,11 +6,13 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+
 Message.destroy_all
 Conversation.destroy_all
+UserGame.destroy_all
 Match.destroy_all
 Like.destroy_all
-UserGame.destroy_all
+
 User.destroy_all
 Game.destroy_all
 
@@ -82,7 +84,7 @@ user_games = UserGame.create!([
   {
     user: users[1],
     game: games[2],
-    mood: "try hard",
+    mood: "Try hard",
     level: "4"
   },
   {
@@ -100,7 +102,7 @@ user_games = UserGame.create!([
   {
     user: users[3],
     game: games[2],
-    mood: "try hard",
+    mood: "Try hard",
     level: "4"
   },
   {

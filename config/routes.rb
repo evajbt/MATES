@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       get 'search', to: 'user_games#search', as: 'search'
     end
     resources :likes, only: [:create]
-    resources :matches, only: [:index]
+    resources :matches, only: [:show]
   end
 
   resources :conversations, only: [:index, :show] do

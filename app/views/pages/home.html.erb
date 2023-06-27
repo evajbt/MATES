@@ -1,27 +1,27 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
- <%= link_to "Search", search_profiles_path %>
+<div class="container">
+  <%= form_with(url: search_profiles_path, method: :get) do |form| %>
+    <div>
+      <%= form.label :name, "Nom du jeu", required: true %>
+      <%= form.select :name, Game.pluck(:name)  %>
+    </div>
 
-<%= form_with(url: search_profiles_path, method: :get) do |form| %>
-  <div>
-    <%= form.label :name, "Nom du jeu" %>
-    <%= form.text_field :name %>
-  </div>
+    <div>
+      <%= form.label :level, "Level" %>
+      <%= form.number_field :level %>
+    </div>
 
-  <div>
-    <%= form.label :level, "Level" %>
-    <%= form.number_field :level %>
-  </div>
+    <div>
+      <%= form.label :mood, "Mood" %>
+      <%= form.select :mood, ['','Chill', 'Try hard', 'Competitive'] %>
+    </div>
 
-  <div>
-    <%= form.label :mood, "Mood" %>
-    <%= form.text_field :mood %>
-  </div>
+    <div>
+      <%= form.label :gender, "Gender" %>
+      <%= form.select :gender, ['','masculine', 'feminine'] %>
+    </div>
 
-  <div>
-    <%= form.label :gender, "Gender" %>
-    <%= form.text_field :gender %>
-  </div>
-
-  <%= form.submit "Rechercher" %>
-<% end %>
+    <%= form.submit "Rechercher" %>
+  <% end %>
+</div>
