@@ -1,3 +1,4 @@
+#app>controllers>profiles_controller.rb
 class ProfilesController < ApplicationController
   def show
     @profile = User.find(params[:id])

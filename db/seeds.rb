@@ -6,9 +6,13 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+
+Message.destroy_all
+Conversation.destroy_all
 UserGame.destroy_all
 Match.destroy_all
 Like.destroy_all
+
 User.destroy_all
 Game.destroy_all
 
@@ -134,14 +138,55 @@ puts "Creating matches list"
 
 matches = Match.create!([
   {
-    like: likes[0],
+    like: likes[0]
   },
   {
-    like: likes[1],
+    like: likes[1]
   },
   {
-    like: likes[2],
+    like: likes[2]
   }
 ])
 
 puts "Created #{matches.count} matches"
+
+
+conversations = Conversation.create!([
+  {
+    sender_id: users[0].id,
+    recipient_id: users[1].id,
+    match: matches[0]
+  },
+  {
+    sender_id: users[2].id,
+    recipient_id: users[3].id,
+    match: matches[1]
+  }
+])
+
+puts "Created #{conversations.count} conversations"
+
+messages = Message.create!([
+  {
+    conversation_id: conversations[0].id,
+    user_id: users[0].id,
+    content: "Salut Anette, comment ça va ?"
+  },
+  {
+    conversation_id: conversations[0].id,
+    user_id: users[1].id,
+    content: "Ça va bien, merci Jean! Prêt pour une partie de Valorant?"
+  },
+  {
+    conversation_id: conversations[1].id,
+    user_id: users[2].id,
+    content: "Hey Marie, veux-tu jouer à Teamfight Tactics?"
+  },
+  {
+    conversation_id: conversations[1].id,
+    user_id: users[3].id,
+    content: "Oui, je suis partante, Paul!"
+  }
+])
+
+puts "Created #{messages.count} messages"
