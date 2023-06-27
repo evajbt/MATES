@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     collection do
       get 'search', to: 'user_games#search', as: 'search'
     end
-    resources :likes, only: [:create]
+    resources :likes, only: [:new, :create]
     resources :matches, only: [:index]
   end
 end
