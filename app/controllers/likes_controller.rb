@@ -5,6 +5,7 @@ class LikesController < ApplicationController
     if Like.exists?(liked: current_user, liker: liked_user)
       existing_like = Like.find_by(liked: current_user, liker: liked_user)
       @match = Match.create(like: existing_like)
+      @conversation = Conversation.create(match: @match, recipient: current_user, sender: liked_user)
       redirect_to profile_match_path(params[:profile_id], @match.id), notice: "User matched successfully."
     else
       @like = current_user.given_likes.create(liked: liked_user)
