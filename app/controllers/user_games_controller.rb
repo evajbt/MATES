@@ -1,4 +1,3 @@
-#app>controllers>user_games_controller.rb
 class UserGamesController < ApplicationController
   def new
     @profile = User.find(params[:profile_id])

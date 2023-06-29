@@ -1,12 +1,14 @@
 
 <h1>Match Details</h1>
 <% if @match %>
-  <p>You have a new match with <%= @match.like.liked.username %>!</p>
+  <p>It's a Match !</p>
   <!-- Afficher d'autres détails du match ici -->
 <% end %>
 
 <%= simple_form_for [ @match.conversations.first, Message.new ], html: { class: 'new-message' } do |f| %>
-  <%= f.input :content, label: false, input_html: { placeholder: 'Salut! Ça va?' }, required: true %>
+  <%= f.input :content, label: false, input_html: { placeholder: 'Send your 1st message to your new mates!' }, required: true %>
   <%= f.hidden_field :first,value:"true"%>
-  <%= f.button :submit, 'Envoyer' %>
+  <%= submit_tag 'Send', class: 'send-button' %>
 <% end %>
+<br>
+<p>Continue to swipe</p>
