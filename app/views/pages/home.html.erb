@@ -1,9 +1,7 @@
 <h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<div class="container">
   <%= form_with(url: search_profiles_path, method: :get) do |form| %>
     <div>
-      <%= form.label :name, "Nom du jeu", required: true %>
+      <%= form.label :name, "Game name", required: true %>
       <%= form.select :name, Game.pluck(:name)  %>
     </div>
 
@@ -22,6 +20,11 @@
       <%= form.select :gender, ['','masculine', 'feminine'] %>
     </div>
 
-    <%= form.submit "Rechercher" %>
+    <div>
+      <%= form.label :gender, "Age" %>
+      <%= form.number_field :age %>
+    </div>
+
+    <%= form.submit "Find me a mate" %>
   <% end %>
 </div>
