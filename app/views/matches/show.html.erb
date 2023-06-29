@@ -4,3 +4,11 @@
   <p>You have a new match with <%= @match.like.liked.username %>!</p>
   <!-- Afficher d'autres détails du match ici -->
 <% end %>
+
+<%# faire simpleform Input text "Hello Match" +
+submit qui renvoie sur ma show de conversation %>
+
+<%= simple_form_for [ @match.conversation, Message.new ], html: { class: 'new-message' } do |f| %>
+  <%= f.input :content, label: false, input_html: { placeholder: 'Salut! Ça va?' }, required: true %>
+  <%= f.button :submit, 'Envoyer' %>
+<% end %>
