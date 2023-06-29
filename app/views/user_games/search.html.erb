@@ -6,7 +6,7 @@
       <% @search_results.each do |search_result| %>
         <div>
           <%= search_result.username %>
-          <%= search_result.birthdate %>
+          <%= search_result.age %>
           <%= search_result.gender %>
           <br>
           <% user_game = search_result.user_games.find_by(game: Game.find_by(name: params[:name])) %>
@@ -14,7 +14,7 @@
             <%= user_game.mood %>
             <%= user_game.level %>
             <%= user_game.game.name %>
-            <%= button_to "Like", profile_likes_path(profile_id: search_result.id, current_user_id: current_user.id), method: :post, params: { liked_user_id: search_result.id }, class: "like-button", remote: true %>
+            <%= button_to "Like", profile_likes_path(profile_id: search_result.id, current_user_id: current_user.id, name: params[:name], level: params[:level], mood: params[:mood], gender: params[:gender], age: params[:age]), method: :post, params: { liked_user_id: search_result.id }, class: "like-button", remote: true %>
           <% else %>
             <p>User game not found</p>
           <% end %>

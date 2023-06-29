@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+
   def create
     @conversation = Conversation.find(params[:conversation_id])
     @message = @conversation.messages.new(message_params)
@@ -20,4 +21,5 @@ class MessagesController < ApplicationController
   def message_params
     params.require(:message).permit(:content)
   end
+
 end
