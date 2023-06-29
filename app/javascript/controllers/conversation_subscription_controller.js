@@ -1,4 +1,3 @@
-// app/javascript/controllers/chatroom_subscription_controller.js
 import { Controller } from "@hotwired/stimulus"
 import { createConsumer } from "@rails/actioncable"
 
