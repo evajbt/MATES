@@ -4,8 +4,9 @@ class MessagesController < ApplicationController
     @conversation = Conversation.find(params[:conversation_id])
     @message = @conversation.messages.new(message_params)
     @message.user = current_user
-
-    if @message.save
+    if params[:message][:first] && @message.save
+      redirect_to conversation_path(@conversation)
+    elsif @message.save
       ConversationChannel.broadcast_to(
         @conversation,
         render_to_string(partial: "message", locals: {message: @message})
