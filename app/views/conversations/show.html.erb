@@ -1,0 +1,14 @@
+<%# app/views/conversations/show.html.erb %>
+
+<div id="conversation" data-controller="conversation-subscription" data-conversation-subscription-conversation-id-value="<%= @conversation.id %>">
+  <div id="messages" data-conversation-subscription-target="messages">
+    <% @conversation.messages.each do |message| %>
+      <%= render 'messages/message', message: message %>
+    <% end %>
+  </div>
+
+  <%= form_with(model: [ @conversation, @conversation.messages.new ], local: false, html: { data: { action: "turbo:submit-end->conversation-subscription#resetForm" }} ) do |form| %>
+    <%= form.text_field :content, placeholder: "Type a message..." %>
+    <%= form.submit "Send" %>
+  <% end %>
+</div>
