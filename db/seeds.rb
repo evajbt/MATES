@@ -23,28 +23,28 @@ puts "Creating User list"
 users = User.create!([
   {
     username: "Jean",
-    birthdate: Date.new(1980, 2, 28),
+    age: 18,
     gender: "masculine",
     email: "jean@mail.com",
     password: "123456789"
   },
   {
     username: "Anette",
-    birthdate: Date.new(2001, 5, 15),
+    age: 30,
     gender: "feminine",
     email: "anette@mail.com",
     password: "123456789"
   },
   {
     username: "Paul",
-    birthdate: Date.new(1990, 5, 17),
+    age: 25,
     gender: "masculine",
     email: "paul@mail.com",
     password: "123456789"
   },
   {
     username: "Marie",
-    birthdate: Date.new(1991, 5, 22),
+    age: 19,
     gender: "feminine",
     email: "marie@mail.com",
     password: "123456789"
@@ -114,79 +114,3 @@ user_games = UserGame.create!([
 ])
 
 puts "Created #{user_games.count} user_games"
-
-puts "Creating likes list"
-
-likes = Like.create!([
-  {
-    liked: users[1],
-    liker: users[2],
-  },
-  {
-    liked: users[3],
-    liker: users[1],
-  },
-  {
-    liked: users[2],
-    liker: users[3],
-  }
-])
-
-puts "Created #{likes.count} likes"
-
-puts "Creating matches list"
-
-matches = Match.create!([
-  {
-    like: likes[0]
-  },
-  {
-    like: likes[1]
-  },
-  {
-    like: likes[2]
-  }
-])
-
-puts "Created #{matches.count} matches"
-
-
-conversations = Conversation.create!([
-  {
-    sender_id: users[0].id,
-    recipient_id: users[1].id,
-    match: matches[0]
-  },
-  {
-    sender_id: users[2].id,
-    recipient_id: users[3].id,
-    match: matches[1]
-  }
-])
-
-puts "Created #{conversations.count} conversations"
-
-messages = Message.create!([
-  {
-    conversation_id: conversations[0].id,
-    user_id: users[0].id,
-    content: "Salut Anette, comment ça va ?"
-  },
-  {
-    conversation_id: conversations[0].id,
-    user_id: users[1].id,
-    content: "Ça va bien, merci Jean! Prêt pour une partie de Valorant?"
-  },
-  {
-    conversation_id: conversations[1].id,
-    user_id: users[2].id,
-    content: "Hey Marie, veux-tu jouer à Teamfight Tactics?"
-  },
-  {
-    conversation_id: conversations[1].id,
-    user_id: users[3].id,
-    content: "Oui, je suis partante, Paul!"
-  }
-])
-
-puts "Created #{messages.count} messages"

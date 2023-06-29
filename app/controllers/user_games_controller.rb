@@ -46,7 +46,7 @@ class UserGamesController < ApplicationController
     # @search_results = User.joins(user_games: :game)
     #                       .where(user_games: { level: search_params[:level], mood: search_params[:mood] }, gender: search_params[:gender], games: { name: search_params[:name] })
     #                       .where.not(id: @profile.id)
-    query = User.joins(user_games: :game).where.not(id: @profile.id)
+    query = User.joins(user_games: :game).where.not(id: @profile.id).distinct
 
     if search_params[:level].present?
       query = query.where(user_games: { level: search_params[:level] })
@@ -60,20 +60,24 @@ class UserGamesController < ApplicationController
       query = query.where(gender: search_params[:gender])
     end
 
+    if search_params[:age].present?
+      query = query.where(age: search_params[:age])
+    end
+
     if search_params[:name].present?
       query = query.where(games: { name: search_params[:name] })
     end
 
-    @search_results = query
+    @search_results = query.reject{|user| Like.find_by(liker: current_user, liked: user)}
   end
 
   private
 
   def user_game_params
-    params.require(:user_game).permit(:level, :mood, :game_id, :name, :gender)
+    params.require(:user_game).permit(:level, :mood, :game_id, :name, :gender, :age)
   end
 
   def search_params
-    params.permit(:name, :level, :mood, :gender)
+    params.permit(:name, :level, :mood, :gender, :age)
   end
 end
