@@ -1,13 +1,15 @@
-<h1>All conversations</h1>
+<div class="conversations-container">
+  <h1>All conversations</h1>
 
-<ul>
-  <% @conversations.each do |conversation| %>
-    <li>
-      <% if conversation.sender == current_user %>
-        <%= link_to "Conversation with #{conversation.recipient.username}", conversation_path(conversation) %>
-      <% else %>
-        <%= link_to "Conversation with #{conversation.sender.username}", conversation_path(conversation) %>
-      <% end %>
-    </li>
-  <% end %>
-</ul>
+  <ul>
+    <% @conversations.each do |conversation| %>
+      <li class="conversation-card">
+        <% if conversation.sender == current_user %>
+          <%= link_to "Conversation with #{conversation.recipient.username}", conversation_path(conversation) %>
+        <% else %>
+          <%= link_to "Conversation with #{conversation.sender.username}", conversation_path(conversation) %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>

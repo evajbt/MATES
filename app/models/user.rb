@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  has_one_attached :photo
   has_many :user_games
   has_many :games, through: :user_games
   has_many :received_likes, class_name: 'Like', foreign_key: 'liked_id'
