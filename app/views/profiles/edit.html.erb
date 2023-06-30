@@ -1,18 +1,51 @@
-<%= form_with(model: @profile, url: profile_path, method: :patch) do |form| %>
-  <%= form.label :username %>
-  <%= form.text_field :username %>
+<div class="container my-5">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h2 class="mb-4">Edit Profile</h2>
+      <%= form_with(model: @profile, url: profile_path, method: :patch, html: { class: 'needs-validation', novalidate: '' }) do |form| %>
 
-  <%= form.label :age %>
-  <%= form.number_field :age %>
+        <div class="mb-3">
+          <%= form.label :username, class: 'form-label' %>
+          <%= form.text_field :username, class: 'form-control', required: true %>
+          <div class="invalid-feedback">
+            Please enter your username.
+          </div>
+        </div>
 
-  <%= form.label :gender %>
-  <%= form.select :gender, ['Male', 'Female', 'Other'] %>
+        <div class="mb-3">
+          <%= form.label :age, class: 'form-label' %>
+          <%= form.number_field :age, class: 'form-control', required: true %>
+          <div class="invalid-feedback">
+            Please enter your age.
+          </div>
+        </div>
 
-  <%= form.label :email %>
-  <%= form.email_field :email %>
+        <div class="mb-3">
+          <%= form.label :gender, class: 'form-label' %>
+          <%= form.select :gender, ['Male', 'Female', 'Other'], {}, {class: 'form-select', required: true} %>
+          <div class="invalid-feedback">
+            Please select your gender.
+          </div>
+        </div>
 
-  <%= form.label :password %>
-  <%= form.text_field :password %>
+        <div class="mb-3">
+          <%= form.label :email, class: 'form-label' %>
+          <%= form.email_field :email, class: 'form-control', required: true %>
+          <div class="invalid-feedback">
+            Please enter a valid email.
+          </div>
+        </div>
 
-  <%= form.submit 'Update' %>
-<% end %>
+        <div class="mb-3">
+          <%= form.label :photo, class: 'form-label' %>
+          <%= form.file_field :photo, class: 'form-control', accept: 'image/*' %>
+        </div>
+
+        <div class="mb-3">
+          <%= form.submit 'Update', class: 'btn btn-lg w-50 custom-button' %>
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+</div>
