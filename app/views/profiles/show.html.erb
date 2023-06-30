@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-4">
       <div class="text-center">
-        <%= image_tag(@profile.photo, class: "rounded-circle img-thumbnail", width: 300) %>
+        <%= image_tag(@profile.photo.present? ? @profile.photo : 'user_pp.png', class: "rounded-circle img-thumbnail", width: 300) %>
       </div>
     </div>
     <div class="col-md-8">
