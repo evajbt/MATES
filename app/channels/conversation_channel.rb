@@ -15,7 +15,7 @@ class ConversationChannel < ApplicationCable::Channel
   #   ActionCable.server.broadcast("conversation_#{conversation.id}", message: render_message(message))
   # end
 
-  private
+  #private
 
 #   def render_message(message)
 #     ApplicationController.renderer.render(partial: 'messages/message', locals: { message: message })
