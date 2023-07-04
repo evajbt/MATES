@@ -1,3 +1,4 @@
+<body>
 <div class="container">
   <div class="row col-4">
     <% if @search_results.empty? %>
@@ -23,7 +24,7 @@
     <% end %>
   </div>
 </div>
-
+</body>
 <script>
   $(document).ready(function() {
     $(".like-button").on("ajax:success", function(event) {

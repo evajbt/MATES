@@ -1,31 +1,32 @@
 <div class="container">
-  <h1>Find your perfect Mate</h1>
+<div class="search-text col-10 mx-auto">
+  <h1><strong>Find your perfect Mate</strong></h1>
   <p>Edit or add filters to match with new players!</p>
-
+</div>
   <%= form_with(url: search_profiles_path, method: :get, class: 'row gy-3') do |form| %>
 
-    <div class="col-md-6">
+    <div class="col-10 mx-auto">
       <div class="form-floating">
         <%= form.select :name, Game.pluck(:name), {}, class: "form-select" %>
         <%= form.label :name, "Game name", required: true, class: "form-label" %>
       </div>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-10 mx-auto">
       <div class="form-floating">
-        <%= form.number_field :level, class: "form-control", placeholder: "Level" %>
+        <%= form.number_field :level, class: "form-control" %>
         <%= form.label :level, "Level", class: "form-label" %>
       </div>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-10 mx-auto">
       <div class="form-floating">
         <%= form.select :mood, ['Chill', 'Try hard', 'Competitive'], {}, class: "form-select" %>
         <%= form.label :mood, "Mood", class: "form-label" %>
       </div>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-10 mx-auto">
       <div class="form-floating">
         <%= form.select :gender, ['masculine', 'feminine'], { prompt: "Let me if you don't care" }, class: "form-select" %>
         <%= form.label :gender, "Gender", class: "form-label" %>
@@ -33,14 +34,14 @@
     </div>
 
 
-    <div class="col-md-6">
+    <div class="col-10 mx-auto">
       <div class="form-floating">
-        <%= form.number_field :age, class: "form-control", placeholder: "Age" %>
+        <%= form.number_field :age, class: "form-control" %>
         <%= form.label :age, "Age", class: "form-label" %>
       </div>
     </div>
 
-    <div class="col-12">
+    <div class="col-10 mx-auto">
       <%= form.submit "Find me a mate", class: "btn custom-button" %>
     </div>
   <% end %>

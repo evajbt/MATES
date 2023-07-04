@@ -1,1 +1,38 @@
 // Specific CSS for your home-page
+
+body {
+  background-color: #1A1524;
+}
+
+h1, h2, p {
+  color: white;
+}
+
+.form-select,
+.form-control {
+  border-radius: 30px;
+  border-color: #FA00FF;
+  background-color: black;
+  margin-top: 30px;
+  color: white;
+}
+
+.form-control:focus {
+  background-color: black;
+}
+
+.form-floating {
+  position: relative;
+}
+
+.form-floating .form-label {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  color: white;
+  font-size: 20px;
+}
+
+.search-text {
+  margin-bottom: 40px;
+}
