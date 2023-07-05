@@ -1,3 +1,4 @@
+<div class="container my-5">
 <h1>Edit User Game</h1>
 
 <%= form_with(model: @user_game, url: profile_user_game_path(@user_game), method: :patch) do |form| %>
@@ -9,3 +10,4 @@
 
   <%= form.submit "Update" %>
 <% end %>
+</div>

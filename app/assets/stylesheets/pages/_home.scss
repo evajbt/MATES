@@ -1,37 +1,38 @@
 // Specific CSS for your home-page
 
+#content {
+  padding-top: 20px;
+  overflow: scroll;
+}
+
 body {
   background-color: #1A1524;
+  font-family: 'Roboto';
+  color: white;
 }
 
 h1, h2, p {
   color: white;
 }
 
-.form-select,
-.form-control {
-  border-radius: 30px;
-  border-color: #FA00FF;
-  background-color: black;
-  margin-top: 30px;
-  color: white;
+.profile-info {
+  margin-top: 20px;
 }
-// .form-select,
-// .form-control {
-//   border-radius: 30px;
-//   border: 2px solid; /* Supposons une épaisseur de 2px pour la bordure */
-//   border-image-slice: 1;
-//   border-image-source: linear-gradient(to right, #FA00FF, #00FFFF);
-//   background-color: black;
-//   margin-top: 30px;
-//   color: white;
-//   padding: 10px; /* Ajustez le rembourrage selon vos besoins */
-//   box-sizing: border-box; /* Pour inclure le padding dans la largeur totale */
-// }
 
+/* Styles par défaut */
 
-.form-control:focus {
-  background-color: black;
+/* Styles pour les écrans de petite taille (mobile) */
+@media screen and (max-width: 767px) {
+  /* Ajoutez ici les styles spécifiques aux écrans de petite taille */
+}
+/* Styles pour les écrans de taille moyenne (tablettes) */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  /* Ajoutez ici les styles spécifiques aux écrans de taille moyenne */
+}
+
+/* Styles pour les écrans de grande taille (ordinateurs de bureau) */
+@media screen and (min-width: 992px) {
+  /* Ajoutez ici les styles spécifiques aux écrans de grande taille */
 }
 
 .form {
@@ -80,10 +81,3 @@ h1, h2, p {
 .search-text {
   margin-bottom: 40px;
 }
-// .form-bg {
-//   border-radius: 328px;
-//   border: 1px solid #000;
-//   background: linear-gradient(221deg, #33196B 0%, #FF00F5 100%);
-//   -webkit-backdrop-filter: blur(250px);
-//   backdrop-filter: blur(250px);
-// }
