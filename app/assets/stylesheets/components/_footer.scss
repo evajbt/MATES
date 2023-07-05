@@ -1,0 +1,23 @@
+#main-footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-mobile {
+  background-color: #1A1524;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+}
+
+.footer-mobile .conversation-icon {
+  justify-content: flex-start;
+}
+
+.footer-mobile .profile-icon {
+  justify-content: flex-end;
+}
