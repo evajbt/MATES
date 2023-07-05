@@ -16,16 +16,32 @@ h1, h2, p {
   margin-top: 30px;
   color: white;
 }
+// .form-select,
+// .form-control {
+//   border-radius: 30px;
+//   border: 2px solid; /* Supposons une épaisseur de 2px pour la bordure */
+//   border-image-slice: 1;
+//   border-image-source: linear-gradient(to right, #FA00FF, #00FFFF);
+//   background-color: black;
+//   margin-top: 30px;
+//   color: white;
+//   padding: 10px; /* Ajustez le rembourrage selon vos besoins */
+//   box-sizing: border-box; /* Pour inclure le padding dans la largeur totale */
+// }
+
 
 .form-control:focus {
   background-color: black;
 }
 
-.form-floating {
+.form {
   position: relative;
 }
-
-.form-floating .form-label {
+.form:focus {
+  outline: none;
+  border-color: none;
+}
+.form .form-label {
   position: absolute;
   top: -40px;
   left: 0;
@@ -33,6 +49,41 @@ h1, h2, p {
   font-size: 20px;
 }
 
+.form > .form-control:focus ~ label::after,
+.form > .form-control:not(:placeholder-shown) ~ label::after,
+.form > .form-control-plaintext ~ label::after,
+.form > .form-select ~ label::after {
+  position: absolute;
+  inset: 1rem 0.375rem;
+  z-index: -1;
+  height: 1.5em;
+  content: "";
+  background-color: #1A1524;
+}
+.form > .form-select ~ label {
+  color: white;
+}
+.form > .form-control:not(:placeholder-shown) ~ label {
+  color: white;
+}
+.form > .form-control:not(:placeholder-shown){
+  color: white;
+
+}
+
+
+
+.form > .form-select {
+  color: white;
+
+}
 .search-text {
   margin-bottom: 40px;
 }
+// .form-bg {
+//   border-radius: 328px;
+//   border: 1px solid #000;
+//   background: linear-gradient(221deg, #33196B 0%, #FF00F5 100%);
+//   -webkit-backdrop-filter: blur(250px);
+//   backdrop-filter: blur(250px);
+// }
