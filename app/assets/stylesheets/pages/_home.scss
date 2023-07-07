@@ -1,12 +1,20 @@
 // Specific CSS for your home-page
 
+#content {
+  padding-top: 20px;
+  overflow: scroll;
+}
+
 body {
   background-color: #1A1524;
+  font-family: 'Roboto';
+  color: white;
 }
 
 h1, h2, p {
   color: white;
 }
+
 
 // .form-select,
 // .form-control {
@@ -29,9 +37,25 @@ h1, h2, p {
 //   box-sizing: border-box; /* Pour inclure le padding dans la largeur totale */
 // }
 
+.profile-info {
+  margin-top: 20px;
+}
 
-.form-control:focus {
-  background-color: black;
+
+/* Styles par défaut */
+
+/* Styles pour les écrans de petite taille (mobile) */
+@media screen and (max-width: 767px) {
+  /* Ajoutez ici les styles spécifiques aux écrans de petite taille */
+}
+/* Styles pour les écrans de taille moyenne (tablettes) */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  /* Ajoutez ici les styles spécifiques aux écrans de taille moyenne */
+}
+
+/* Styles pour les écrans de grande taille (ordinateurs de bureau) */
+@media screen and (min-width: 992px) {
+  /* Ajoutez ici les styles spécifiques aux écrans de grande taille */
 }
 
 .form {
@@ -82,6 +106,7 @@ h1, h2, p {
 .search-text {
   margin-bottom: 20px;
 }
+
 
 
 // .form-bg {

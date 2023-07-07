@@ -1,0 +1,28 @@
+.form-select,
+.form-control {
+  border-radius: 30px;
+  border-color: #FA00FF;
+  background-color: black;
+  margin-top: 30px;
+  color: white;
+}
+
+.form-control:focus {
+  background-color: black;
+}
+
+.form {
+  position: relative;
+}
+
+.form .form-label {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  color: white;
+  font-size: 20px;
+}
+
+.search-text {
+  margin-bottom: 40px;
+}

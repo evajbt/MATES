@@ -1,3 +1,4 @@
+<div class="container my-5">
 <h1>Add User Game</h1>
 
 <%= form_with(model: [@profile, @user_game], url: profile_user_games_path(@profile), method: :post) do |form| %>
@@ -12,3 +13,4 @@
 
   <%= form.submit "Add Game" %>
 <% end %>
+</div>

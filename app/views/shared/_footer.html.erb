@@ -1,0 +1,19 @@
+<footer class="footer-mobile" id="main-footer">
+  <div class="conversation-icon">
+    <%= link_to conversations_path do %>
+    <i class="fas fa-comment fa-lg" style="color: white;"></i>
+     <% end %>
+  </div>
+
+  <div class="profile-icon">
+    <% if user_signed_in? %>
+      <%= link_to profile_path(current_user) do %>
+      <i class="fas fa-user fa-lg" style="color: white;"></i>
+    <% end %>
+    <% else %>
+      <%= link_to new_user_session_path do %>
+      <i class="fas fa-user fa-lg" style="color: white;"></i>
+      <% end %>
+    <% end %>
+  </div>
+</footer>

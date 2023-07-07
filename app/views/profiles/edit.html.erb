@@ -4,7 +4,7 @@
       <h2 class="mb-4">Edit Profile</h2>
       <%= form_with(model: @profile, url: profile_path, method: :patch, html: { class: 'needs-validation', novalidate: '' }) do |form| %>
 
-        <div class="mb-3">
+        <div class="col-10 mx-auto">
           <%= form.label :username, class: 'form-label' %>
           <%= form.text_field :username, class: 'form-control', required: true %>
           <div class="invalid-feedback">
@@ -12,7 +12,7 @@
           </div>
         </div>
 
-        <div class="mb-3">
+        <div class="col-10 mx-auto">
           <%= form.label :age, class: 'form-label' %>
           <%= form.number_field :age, class: 'form-control', required: true %>
           <div class="invalid-feedback">
@@ -20,7 +20,7 @@
           </div>
         </div>
 
-        <div class="mb-3">
+        <div class="col-10 mx-auto">
           <%= form.label :gender, class: 'form-label' %>
           <%= form.select :gender, ['Male', 'Female', 'Other'], {}, {class: 'form-select', required: true} %>
           <div class="invalid-feedback">
@@ -28,7 +28,7 @@
           </div>
         </div>
 
-        <div class="mb-3">
+        <div class="col-10 mx-auto">
           <%= form.label :email, class: 'form-label' %>
           <%= form.email_field :email, class: 'form-control', required: true %>
           <div class="invalid-feedback">
@@ -36,13 +36,13 @@
           </div>
         </div>
 
-        <div class="mb-3">
+        <div class="col-10 mx-auto">
           <%= form.label :photo, class: 'form-label' %>
           <%= form.file_field :photo, class: 'form-control', accept: 'image/*' %>
         </div>
 
-        <div class="mb-3">
-          <%= form.submit 'Update', class: 'btn btn-lg w-50 custom-button' %>
+        <div class="col-10 mx-auto">
+          <%= form.submit 'Update', class: 'btn custom-button' %>
         </div>
 
       <% end %>

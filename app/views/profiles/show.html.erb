@@ -1,27 +1,20 @@
+
 <div class="container my-5">
   <div class="row">
-    <div class="col-md-4">
-      <div class="text-center">
-        <%= image_tag(@profile.photo.present? ? @profile.photo : 'user_pp.png', class: "rounded-circle img-thumbnail", width: 300) %>
+
+    <div class="text-center">
+      <h1 class="display-4">Profile</h1>
+      <%= image_tag(@profile.photo.present? ? @profile.photo : 'user_pp.png', class: "rounded-circle img-thumbnail", width: 200) %>
+     <i class="fa-regular fa-circle-camera" style="color: #fa00ff;"></i>
+      <div class="profile-info">
+       <h2><%= @profile.username %></h2>
+        <dd class="age"><%= @profile.age %> yo</dd>
+        <dd class="gender"><%= @profile.gender %></dd>
+        <%= button_to "Edit", edit_profile_path(current_user), method: :get, class: "btn btn-outline-light", type: "button" %>
       </div>
-    </div>
-    <div class="col-md-8">
-      <h1 class="display-4">My Profile</h1>
-      <dl class="row">
-        <dt class="col-sm-3">Username:</dt>
-        <dd class="col-sm-9"><%= @profile.username %></dd>
-
-        <dt class="col-sm-3">Age:</dt>
-        <dd class="col-sm-9"><%= @profile.age %></dd>
-
-        <dt class="col-sm-3">Gender:</dt>
-        <dd class="col-sm-9"><%= @profile.gender %></dd>
-
-        <dt class="col-sm-3">Email:</dt>
-        <dd class="col-sm-9"><%= @profile.email %></dd>
-      </dl>
-    </div>
   </div>
+
+
 
   <div class="my-5">
     <h2 class="mb-3">My Games</h2>
@@ -34,12 +27,12 @@
             <strong>Level:</strong> <%= user_game.level %>
           </p>
           <div class="d-flex">
-            <%= link_to "Edit", edit_profile_user_game_path(@profile, user_game), class: 'btn btn-primary me-2' %>
-            <%= button_to "Delete", profile_user_game_path(@profile, user_game), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger' %>
+            <%= link_to "Edit", edit_profile_user_game_path(@profile, user_game), class: 'btn btn-outline-light' %>
+            <%= button_to "Delete", profile_user_game_path(@profile, user_game), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-outline-light' %>
           </div>
         </div>
       </div>
     <% end %>
-    <%= link_to "Add Game", new_profile_user_game_path(@profile), class: 'btn btn-success mt-3' %>
+    <%= link_to "Add Game", new_profile_user_game_path(@profile), class: 'btn custom-button' %>
   </div>
 </div>
