@@ -1,29 +1,64 @@
 <body>
-<div class="container my-5">
-  <div class="row col-4">
-    <% if @search_results.empty? %>
-      <p>No mates found for you</p>
-    <% else %>
-      <% @search_results.each do |search_result| %>
-        <div>
-          <%= search_result.username %>
-          <%= search_result.age %>
-          <%= search_result.gender %>
-          <br>
-          <% user_game = search_result.user_games.find_by(game: Game.find_by(name: params[:name])) %>
-          <% if user_game %>
-            <%= user_game.mood %>
-            <%= user_game.level %>
-            <%= user_game.game.name %>
-            <%= button_to "Like", profile_likes_path(profile_id: search_result.id, current_user_id: current_user.id, name: params[:name], level: params[:level], mood: params[:mood], gender: params[:gender], age: params[:age]), method: :post, params: { liked_user_id: search_result.id }, class: "like-button", remote: true %>
-          <% else %>
-            <p>User game not found</p>
-          <% end %>
+
+  <div class="container">
+    <div class="row">
+      <% if @search_results.empty? %>
+        <p>No mates found for you</p>
+      <% else %>
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <% @search_results.each_with_index do |search_result, index| %>
+              <div class="swiper-slide" id="slide-<%= index %>">
+                <div class="search-card">
+                  <div class="swiper-pagination"></div>
+                  <div class="search-card-infos">
+                    <h2>
+                      <%= search_result.username %>
+                    </h2>
+                    <%= search_result.gender %> - <%= search_result.age %> ans
+                  </div>
+                  <div class="search-card-infos">
+                      <% user_game = search_result.user_games.find_by(game: Game.find_by(name: params[:name])) %>
+                      <% if user_game %>
+                        <%= user_game.mood %>
+                        <%= user_game.level %>
+                        <%= user_game.game.name %>
+                  </div>
+                  <div class="search-block-btn">
+                    <%= button_to profile_likes_path(profile_id: search_result.id, current_user_id: current_user.id, name: params[:name], level: params[:level], mood: params[:mood], gender: params[:gender], age: params[:age]), method: :post, params: { liked_user_id: search_result.id }, class: "dislike-button", remote: true, onclick: "closeCardAndMoveToNextSlide(#{index})" do %>
+                    <i class="fa-solid fa-xmark"></i>
+                    <% end %>
+                    <%= button_to profile_likes_path(profile_id: search_result.id, current_user_id: current_user.id, name: params[:name], level: params[:level], mood: params[:mood], gender: params[:gender], age: params[:age]), method: :post, params: { liked_user_id: search_result.id }, class: "like-button", remote: true, onclick: "closeCardAndMoveToNextSlide(#{index})" do %>
+                      <i class="fa-regular fa-heart"></i>
+                    <% end %>
+                  </div>
+                  <% else %>
+                    <p>User game not found</p>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+
         </div>
       <% end %>
-    <% end %>
+    </div>
   </div>
-</div>
+
+  <!-- Incluez le fichier JavaScript de SwiperJS -->
+  <script src="chemin/vers/swiper.js"></script>
+
+  <!-- Initialisez le carousel SwiperJS -->
+  <script>
+    var swiper = new Swiper('.swiper-container', {
+      slidesPerView: 'auto',
+      spaceBetween: 16,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+    });
+  </script>
 </body>
 <script>
   $(document).ready(function() {

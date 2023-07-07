@@ -1,0 +1,40 @@
+.search-card{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 250px;
+  height: 450px;
+  margin: 40px auto;
+  flex-shrink: 0;
+  border-radius: 16px;
+  background: url(user_pp.png) center center / cover no-repeat;
+  box-shadow: 0px -225px 98px -13px rgba(0, 0, 0, 0.78) inset;
+  padding: 200px 8px 30px 8px;
+}
+.search-card-infos{
+  color: #FFF;
+  /* Body/Regular */
+  font-size: 17px;
+  font-family: SF Pro;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: -0.4px;
+  margin: 0;
+}
+.search-card-infos h2{
+  color: #FFF;
+  /* Large Title/Emphasized */
+  font-size: 34px;
+  font-family: SF Pro;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 41px;
+  letter-spacing: -0.4px;
+  margin-bottom: 0px;
+}
+.search-block-btn{
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+}
