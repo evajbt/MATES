@@ -9,3 +9,27 @@
   font-weight: bold;
   border: #2c175b;
 }
+.like-button{
+  width: 70px;
+  height: 70px;
+  flex-shrink: 0;
+  border-radius: 70px;
+  background: #5EC95C;
+  border: none;
+  // -webkit-backdrop-filter: blur(250px);
+  // backdrop-filter: blur(250px);
+  box-shadow: 0px 0px 40px 1px rgba(148, 216, 159, 0.78);
+  color: white;
+}
+.dislike-button{
+  width: 70px;
+  height: 70px;
+  flex-shrink: 0;
+  border-radius: 70px;
+  background: #e00909;
+  border: none;
+  // -webkit-backdrop-filter: blur(250px);
+  // backdrop-filter: blur(250px);
+  box-shadow: 0px 0px 40px 1px rgba(255, 159, 159, 0.78);
+  color: white;
+}
