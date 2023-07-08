@@ -1,15 +1,32 @@
 <div class="container my-5">
-<h1>Match Details</h1>
-<% if @match %>
-  <p>It's a Match !</p>
-  <!-- Afficher d'autres détails du match ici -->
-<% end %>
+    <% if @match %>
+      <div class="text-center mb-5"><h1>It's a Match !</h1></div>
+      <!-- Afficher d'autres détails du match ici -->
 
-<%= simple_form_for [ @match.conversations.first, Message.new ], html: { class: 'new-message' } do |f| %>
-  <%= f.input :content, label: false, input_html: { placeholder: 'Send your 1st message to your new mates!' }, required: true %>
-  <%= f.hidden_field :first,value:"true"%>
-  <%= submit_tag 'Send', class: 'send-button' %>
-<% end %>
-<br>
-<p>Continue to swipe</p>
-</div>
+    <div class="position-relative">
+      <div class="d-flex flex-row justify-content-end me-4">
+        <%= image_tag(@current_user.photo.present? ? @current_user.photo : 'user_pp.png', class: "rounded-circle img-thumbnail", width: 200) %>
+      </div>
+
+      <button class="like-button position-absolute top-50 start-50 translate-middle">
+        <i class="fa-regular fa-heart"></i>
+      </button>
+
+       <div class="d-flex flex-row ms-4">
+        <%= image_tag(@match.like.liker.photo.present? ? @match.like.liker.photo : 'user_pp.png', class: "rounded-circle img-thumbnail", width: 200) %>
+      </div>
+    </div>
+    <% end %>
+
+    <div class="conv-form col-10 mx-auto mt-5">
+      <%= simple_form_for [ @match.conversations.first, Message.new ], html: { class: 'new-message' } do |f| %>
+        <%= f.input :content, label: false, input_html: { class: 'input-conv', placeholder: 'Say hi to your mate !' }, required: true %>
+          <%= f.hidden_field :first,value:"true"%>
+
+        <%= submit_tag 'Send', class: 'send-button' %>
+      <% end %>
+    </div>
+
+    <br>
+      <p>Continue to swipe</p>
+    </div>
