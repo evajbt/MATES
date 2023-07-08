@@ -2,50 +2,63 @@
   <div class="row">
     <div class="col-md-6 offset-md-3">
       <h2 class="mb-4">Edit Profile</h2>
+
+      <div class="form-bg col-10 mx-auto">
       <%= form_with(model: @profile, url: profile_path, method: :patch, html: { class: 'needs-validation', novalidate: '' }) do |form| %>
 
-        <div class="col-10 mx-auto">
-          <%= form.label :username, class: 'form-label' %>
-          <%= form.text_field :username, class: 'form-control', required: true %>
+        <div class="mt-2">
+          <%= form.label :username, class: 'form-label mt-4' %>
+          <div class="InputContainer">
+          <%= form.text_field :username, class: "input", required: true %>
+          </div>
           <div class="invalid-feedback">
             Please enter your username.
           </div>
         </div>
 
-        <div class="col-10 mx-auto">
+        <div class="mt-2">
           <%= form.label :age, class: 'form-label' %>
-          <%= form.number_field :age, class: 'form-control', required: true %>
+        <div class="InputContainer">
+          <%= form.number_field :age, class: "input custom-number-input", required: true %>
+        </div>
           <div class="invalid-feedback">
             Please enter your age.
           </div>
         </div>
 
-        <div class="col-10 mx-auto">
+        <div class="mt-2">
           <%= form.label :gender, class: 'form-label' %>
-          <%= form.select :gender, ['Male', 'Female', 'Other'], {}, {class: 'form-select', required: true} %>
+          <div class="InputContainer">
+          <%= form.select :gender, ['Male', 'Female', 'Other'], {}, {class: 'form-select input', required: true} %>
+          </div>
           <div class="invalid-feedback">
             Please select your gender.
           </div>
         </div>
 
-        <div class="col-10 mx-auto">
+        <div class="mt-2">
           <%= form.label :email, class: 'form-label' %>
-          <%= form.email_field :email, class: 'form-control', required: true %>
+          <div class="InputContainer">
+          <%= form.email_field :email, class: 'input', required: true %>
+          </div>
           <div class="invalid-feedback">
             Please enter a valid email.
           </div>
         </div>
 
-        <div class="col-10 mx-auto">
+        <div class="mt-2">
           <%= form.label :photo, class: 'form-label' %>
-          <%= form.file_field :photo, class: 'form-control', accept: 'image/*' %>
+          <div class="InputContainer">
+          <%= form.file_field :photo, class: 'input', accept: 'image/*' %>
+        </div>
         </div>
 
-        <div class="col-10 mx-auto">
+        <div class="mx-auto">
           <%= form.submit 'Update', class: 'btn custom-button' %>
         </div>
 
       <% end %>
+      </div>
     </div>
   </div>
 </div>

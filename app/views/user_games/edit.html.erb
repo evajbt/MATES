@@ -1,13 +1,25 @@
 <div class="container my-5">
-<h1>Edit User Game</h1>
+  <h1>Edit User Game</h1>
 
-<%= form_with(model: @user_game, url: profile_user_game_path(@user_game), method: :patch) do |form| %>
-  <%= form.label :level %>
-  <%= form.number_field :level %>
+    <div class="form-bg col-10 mx-auto">
+      <%= form_with(model: @user_game, url: profile_user_game_path(@user_game), method: :patch) do |form| %>
 
-  <%= form.label :mood %>
-  <%= form.select :mood, ['Chill', 'Try hard', 'Competitive'] %>
+    <div class="mt-2">
+      <%= form.label :level %>
+        <div class="InputContainer">
+          <%= form.number_field :level, class: "input custom-number-input" %>
+        </div>
+    </div>
 
-  <%= form.submit "Update" %>
-<% end %>
+    <div class="mt-2">
+      <%= form.label :mood %>
+        <div class="InputContainer">
+          <%= form.select :mood, ['Chill', 'Try hard', 'Competitive'], { }, { class: 'form-select input' } %>
+        </div>
+    </div>
+
+      <%= form.submit "Update", class: 'btn custom-button' %>
+
+      <% end %>
+    </div>
 </div>
