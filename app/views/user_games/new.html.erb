@@ -1,16 +1,31 @@
 <div class="container my-5">
 <h1>Add User Game</h1>
 
-<%= form_with(model: [@profile, @user_game], url: profile_user_games_path(@profile), method: :post) do |form| %>
-  <%= form.label :game_id %>
-  <%= form.collection_select :game_id, @games, :id, :name %>
+<div class="form-bg col-10 mx-auto">
+  <%= form_with(model: [@profile, @user_game], url: profile_user_games_path(@profile), method: :post) do |form| %>
 
-  <%= form.label :level %>
-  <%= form.number_field :level %>
+    <div class="mt-3">
+      <%= form.label :game_id %>
+        <div class="InputContainer mt-2">
+          <%= form.collection_select :game_id, @games, :id, :name, {}, { class: 'input' }  %>
+      </div>
+    </div>
 
-  <%= form.label :mood %>
-  <%= form.select :mood, ['Chill', 'Try hard', 'Competitive'] %>
+    <div class="mt-2">
+      <%= form.label :level %>
+        <div class="InputContainer mt-2">
+          <%= form.number_field :level, class: "input custom-number-input" %>
+      </div>
+    </div>
 
-  <%= form.submit "Add Game" %>
+    <div class="mt-2">
+      <%= form.label :mood %>
+        <div class="InputContainer mt-2">
+          <%= form.select :mood, ['Chill', 'Try hard', 'Competitive'], { }, { class: 'form-select input'} %>
+      </div>
+    </div>
+
+  <%= form.submit "Add Game", class: "btn custom-button" %>
 <% end %>
+</div>
 </div>
