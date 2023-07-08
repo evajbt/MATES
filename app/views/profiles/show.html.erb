@@ -1,28 +1,31 @@
 <div class="container my-5">
   <div class="row">
 
-    <div class="text-center">
-      <h1 class="display-4">Profile</h1>
-      <%= image_tag(@profile.photo.present? ? @profile.photo : 'user_pp.png', class: "rounded-circle img-thumbnail", width: 200) %>
-      <i class="fa-regular fa-circle-camera" style="color: #fa00ff;"></i>
-      <div class="profile-info">
-        <h2><%= @profile.username %></h2>
-      </div>
-      <div class="games-logo-container">
-        <% if @profile.games.present? %>
-          <% @profile.games.each do |game| %>
-            <div class="game-logo">
-              <%= image_tag("game-logo/#{game.logo}", alt: game.name, class: "rounded-circle img-thumbnail small-round-logo") if game.logo.present? %>
-            </div>
+  <div class="text-center">
+  <h1 class="display-4">Profile</h1>
+  <%= image_tag(@profile.photo.present? ? @profile.photo : 'user_pp.png', class: "rounded-circle img-thumbnail", width: 200) %>
+  <i class="fa-regular fa-circle-camera" style="color: #fa00ff;"></i>
+  <div class="profile-info">
+    <h2><%= @profile.username %></h2>
+  </div>
+  <div class="games-logo-container">
+    <% if @profile.games.present? %>
+      <div class="game-logo">
+        <% shown_games = [] %>
+        <% @profile.games.each do |game| %>
+          <% if game.logo.present? && !shown_games.include?(game.name) %>
+            <% shown_games << game.name %>
+            <%= image_tag("game-logo/#{game.logo}", alt: game.name, class: "rounded-circle img-thumbnail small-round-logo") %>
           <% end %>
         <% end %>
       </div>
-      <div class="mt-3">
-        <%= button_to "Edit", edit_profile_path(current_user), method: :get, class: "btn btn-outline-light", type: "button" %>
-      </div>
-    </div>
+    <% end %>
+  </div>
+  <div class="mt-3">
+    <%= button_to "Edit", edit_profile_path(current_user), method: :get, class: "btn btn-outline-light", type: "button" %>
   </div>
 </div>
+
 
 
 
