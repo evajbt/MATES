@@ -1,4 +1,17 @@
 <footer class="footer-mobile" id="main-footer">
+
+   <div class="footer-image">
+  <%= link_to root_path do %>
+      <%= image_tag "logo.png" %>
+    <% end %>
+  </div>
+
+  <div class="search-icon">
+    <%= link_to root_path do %>
+    <i class="fas fa-search fa-lg" style="color: white;"></i>
+     <% end %>
+  </div>
+
   <div class="conversation-icon">
     <%= link_to conversations_path do %>
     <i class="fas fa-comment fa-lg" style="color: white;"></i>
