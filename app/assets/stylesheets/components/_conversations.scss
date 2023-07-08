@@ -3,22 +3,46 @@
   flex-direction: column;
   align-items: center;
   margin-top: 30px;
+  text-align: left;
 }
 
 .conversation-card {
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  padding: 20px;
+  display: flex;
+  justify-content:space-between;
+  flex-direction: row;
+  width: 100%;
+  height: 100px;
+  padding: 4px;
   margin-bottom: 20px;
   width: 80%;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-bottom: solid thin;
+  border-color: blueviolet;
 }
-
+.conversation-card-infos{
+  width: 150px;
+}
+.last-msg{
+  font-size: small;
+  font-weight: lighter;
+}
+.last-msg-time{
+  color: #3D3B3B;
+  /* Body/Regular */
+  font-size: 17px;
+  font-family: SF Pro;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: -0.4px;
+}
 .conversation-card a {
   text-decoration: none;
-  color: #333;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: large;
 }
 
 .conversation-card a:link, .conversation-card a:visited {
-  color: inherit;
+  color: #ffffff;
 }

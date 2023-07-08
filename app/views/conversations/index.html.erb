@@ -1,17 +1,39 @@
 <div class="container my-5">
 <div class="conversations-container">
-  <h1>All conversations</h1>
+  <h1>Messages</h1>
 
-  <ul>
     <% @conversations.each do |conversation| %>
-      <li class="conversation-card">
-        <% if conversation.sender == current_user %>
-          <%= link_to "Conversation with #{conversation.recipient.username}", conversation_path(conversation) %>
-        <% else %>
-          <%= link_to "Conversation with #{conversation.sender.username}", conversation_path(conversation) %>
-        <% end %>
-      </li>
+      <div class="conversation-card">
+        <div class="photo">
+          <%= image_tag(@profile.photo.present? ? @profile.photo : 'user_pp.png', class: "rounded-circle-mini img-thumbnail", width: 70) %>
+        </div>
+        <div class="conversation-card-infos">
+          <div>
+            <% if conversation.sender == current_user %>
+              <%= link_to "#{conversation.recipient.username}", conversation_path(conversation) %>
+            <% else %>
+              <%= link_to "#{conversation.sender.username}", conversation_path(conversation) %>
+            <% end %>
+          </div>
+          <div class="last-msg">
+            <% if conversation.messages.any? %>
+              <%= "- #{truncate(conversation.messages.last.content, length: 20)}" %>
+            <% else %>
+              No messages
+            <% end %>
+          </div>
+          <div class="last-msg-time">
+            <% if conversation.messages.any? %>
+              <%= conversation.messages.last.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+            <% else %>
+              No messages
+            <% end %>
+          </div>
+        </div>
+        <div class="my-auto">
+          <i class="fa-solid fa-ellipsis-vertical"></i>
+        </div>
+      </div>
     <% end %>
-  </ul>
 </div>
 </div>
