@@ -170,22 +170,24 @@ puts "Creating Game list"
 
 games = Game.create!([
   {
-    name: "Valorant"
+    name: "Valorant",
+    logo: "val-logo.jpg"
   },
   {
-    name: "League of Legends"
+    name: "League of Legends",
+    logo: "lol-logo.jpg"
   },
   {
-    name: "Teamfight Tactics"
+    name: "Teamfight Tactics",
+    logo: "tft-logo.jpg"
   },
   {
-    name: "Legends of Runeterra"
+    name: "Legends of Runeterra",
+    logo: "lor-logo.jpg"
   }
 ])
 
 puts "Created #{games.count} games"
-
-puts "Creating user_games list"
 
 user_games = UserGame.create!([
   {
