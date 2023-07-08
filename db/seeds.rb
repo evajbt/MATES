@@ -24,142 +24,142 @@ users = User.create!([
   {
     username: "Jean",
     age: 18,
-    gender: "masculine",
+    gender: "man",
     email: "jean@mail.com",
     password: "123456789"
   },
   {
     username: "Anette",
     age: 30,
-    gender: "feminine",
+    gender: "woman",
     email: "anette@mail.com",
     password: "123456789"
   },
   {
     username: "Paul",
-    age: 25,
-    gender: "masculine",
+    age: 14,
+    gender: "man",
     email: "paul@mail.com",
     password: "123456789"
   },
   {
     username: "Marie",
     age: 19,
-    gender: "feminine",
+    gender: "woman",
     email: "marie@mail.com",
     password: "123456789"
   },
   {
     username: "ShadowSlayer",
     age: 24,
-    gender: "masculine",
+    gender: "man",
     email: "shadowslayer@mail.com",
-    password: "gamer1234"
+    password: "123456789"
   },
   {
     username: "EpicGamerGirl",
     age: 21,
-    gender: "feminine",
+    gender: "woman",
     email: "epicgamergirl@mail.com",
     password: "gamingqueen"
   },
   {
     username: "NinjaWarrior",
     age: 28,
-    gender: "masculine",
+    gender: "man",
     email: "ninjawarrior@mail.com",
-    password: "stealthmaster"
+    password: "123456789"
   },
   {
     username: "PixelWizard",
     age: 19,
-    gender: "masculine",
+    gender: "man",
     email: "pixelwizard@mail.com",
-    password: "8bitmagic"
+    password: "123456789"
   },
   {
     username: "SavageQueen",
     age: 26,
-    gender: "feminine",
+    gender: "woman",
     email: "savagequeen@mail.com",
-    password: "ruthlessgamer"
+    password: "123456789"
   },
   {
     username: "CyberSamurai",
     age: 30,
-    gender: "masculine",
+    gender: "man",
     email: "cybersamurai@mail.com",
-    password: "techblade21"
+    password: "123456789"
   },
   {
     username: "RetroGamerBoy",
     age: 23,
-    gender: "masculine",
+    gender: "man",
     email: "retrogamerboy@mail.com",
-    password: "nostalgic90s"
+    password: "123456789"
   },
   {
     username: "MysticMage",
     age: 27,
-    gender: "feminine",
+    gender: "woman",
     email: "mysticmage@mail.com",
-    password: "spellcaster55"
+    password: "123456789"
   },
   {
     username: "DragonSlayer",
     age: 25,
-    gender: "masculine",
+    gender: "man",
     email: "dragonslayer@mail.com",
-    password: "fireandsteel"
+    password: "123456789"
   },
   {
     username: "StealthyAssassin",
     age: 29,
-    gender: "masculine",
+    gender: "man",
     email: "stealthyassassin@mail.com",
-    password: "shadowblade99"
+    password: "123456789"
   },
   {
     username: "GamingWarrior",
     age: 20,
-    gender: "feminine",
+    gender: "woman",
     email: "gamingwarrior@mail.com",
-    password: "battlequeen12"
+    password: "123456789"
   },
   {
     username: "RapidReload",
     age: 32,
-    gender: "masculine",
+    gender: "man",
     email: "rapidreload@mail.com",
-    password: "triggerfinger"
+    password: "123456789"
   },
   {
     username: "GalacticHero",
     age: 31,
-    gender: "masculine",
+    gender: "man",
     email: "galactichero@mail.com",
-    password: "starvoyager"
+    password: "123456789"
   },
   {
     username: "FierceWarrior",
     age: 22,
-    gender: "feminine",
+    gender: "woman",
     email: "fiercewarrior@mail.com",
-    password: "battlecry88"
+    password: "123456789"
   },
   {
     username: "MasterGamer",
     age: 33,
-    gender: "masculine",
+    gender: "man",
     email: "mastergamer@mail.com",
-    password: "level100boss"
+    password: "123456789"
   },
   {
     username: "Evaainsworth",
     age: 31,
-    gender: "feminine",
+    gender: "woman",
     email: "evaainsworth@gmail.com",
-    password: "hardstuckgold"
+    password: "123456789"
   }
   ])
 
