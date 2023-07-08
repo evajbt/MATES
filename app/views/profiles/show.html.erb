@@ -4,16 +4,72 @@
 
     <div class="text-center">
       <h1 class="display-4">Profile</h1>
-      <%= image_tag(@profile.photo.present? ? @profile.photo : 'user_pp.png', class: "rounded-circle img-thumbnail", width: 200) %>
-     <i class="fa-regular fa-circle-camera" style="color: #fa00ff;"></i>
-      <div class="profile-info">
-       <h2><%= @profile.username %></h2>
-        <dd class="age"><%= @profile.age %> yo</dd>
-        <dd class="gender"><%= @profile.gender %></dd>
-        <%= button_to "Edit", edit_profile_path(current_user), method: :get, class: "btn btn-outline-light", type: "button" %>
-      </div>
-  </div>
+        <%= image_tag(@profile.photo.present? ? @profile.photo : 'user_pp.png', class: "rounded-circle img-thumbnail", width: 200) %>
+          <i class="fa-regular fa-circle-camera" style="color: #fa00ff;"></i>
+          <div class="profile-info">
+            <h2><%= @profile.username %></h2>
+          </div>
+    </div>
 
+    <div class="form-bg col-10 mx-auto">
+      <%= form_with(model: @profile, url: profile_path, method: :patch, html: { class: 'needs-validation', novalidate: '' }) do |form| %>
+
+          <div class="mt-2">
+            <%= form.label :username, class: 'form-label mt-4' %>
+              <div class="InputContainer">
+                <%= form.text_field :username, class: "input", required: true %>
+              </div>
+              <div class="invalid-feedback">
+                Please enter your username.
+            </div>
+          </div>
+
+          <div class="mt-2">
+            <%= form.label :age, class: 'form-label' %>
+              <div class="InputContainer">
+                <%= form.number_field :age, class: "input custom-number-input", required: true %>
+              </div>
+              <div class="invalid-feedback">
+                Please enter your age.
+              </div>
+          </div>
+
+          <div class="mt-2">
+            <%= form.label :gender, class: 'form-label' %>
+              <div class="InputContainer">
+                <%= form.select :gender, ['Male', 'Female', 'Other'], {}, {class: 'form-select input', required: true} %>
+              </div>
+              <div class="invalid-feedback">
+                Please select your gender.
+              </div>
+          </div>
+
+          <div class="mt-2">
+            <%= form.label :email, class: 'form-label' %>
+              <div class="InputContainer">
+                <%= form.email_field :email, class: 'input', required: true %>
+              </div>
+              <div class="invalid-feedback">
+                Please enter a valid email.
+              </div>
+          </div>
+
+          <div class="mt-2">
+            <%= form.label :photo, class: 'form-label' %>
+              <div class="InputContainer">
+                <%= form.file_field :photo, class: 'input', accept: 'image/*' %>
+              </div>
+          </div>
+
+          <div class="mx-auto">
+            <%= form.submit 'Update', class: 'btn custom-button' %>
+          </div>
+      <% end %>
+    </div>
+
+    <div class="d-flex justify-content-center align-items-center">
+      <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "text-white mt-3" %>
+    </div>
 
 
   <div class="my-5">

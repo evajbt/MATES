@@ -7,7 +7,7 @@
 
 .footer-mobile {
   background-color: #1A1524;
-  height: 50px;
+  height: 80px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -20,4 +20,10 @@
 
 .footer-mobile .profile-icon {
   justify-content: flex-end;
+}
+
+.footer-image img {
+  width: 40px;
+  display: flex;
+  align-items: center;
 }
