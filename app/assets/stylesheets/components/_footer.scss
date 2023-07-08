@@ -1,9 +1,9 @@
 #main-footer {
-  position: fixed;
-  left: 0;
+  position: sticky;
   bottom: 0;
-  width: 100%;
+  z-index: 1030; // Bootstrap's z-index for sticky-bottom elements
 }
+
 
 .footer-mobile {
   background-color: #1A1524;
@@ -20,8 +20,4 @@
 
 .footer-mobile .profile-icon {
   justify-content: flex-end;
-}
-
-body {
-  padding-bottom: 50px;
 }

@@ -1,12 +1,8 @@
 .navbar-lewagon {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
-  justify-content: space-between;
-  background: #1A1524;
+  z-index: 1030; // Bootstrap's z-index for sticky-top elements
 }
-
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
@@ -17,9 +13,4 @@
 
 .white-link {
   color: white;
-}
-
-body {
-  padding-top: 56px;
-
 }

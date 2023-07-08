@@ -16,15 +16,18 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body>
-    <%= render "shared/navbar" %>
-    <%= render "shared/flashes" %>
+<body class="d-flex flex-column vh-100">
+  <%= render "shared/navbar" %>
+  <%= render "shared/flashes" %>
 
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <main id="content" class="container flex-grow-1">
+    <%= yield %>
+  </main>
 
-    <div id="content"><%= yield %></div>
-    <%= render "shared/footer" %>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-  </body>
+  <%= render "shared/footer" %>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+</body>
+
 </html>
