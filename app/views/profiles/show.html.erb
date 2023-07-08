@@ -3,22 +3,21 @@
 
     <div class="text-center">
       <h1 class="display-4">Profile</h1>
-
         <%= image_tag(@profile.photo.present? ? @profile.photo : 'user_pp.png', class: "rounded-circle img-thumbnail", width: 200) %>
           <i class="fa-regular fa-circle-camera" style="color: #fa00ff;"></i>
             <div class="profile-info">
               <h2><%= @profile.username %></h2>
             </div>
-           <div class="games-logo-container">
+            <div class="games-logo-container">
               <% if @profile.games.present? %>
                 <div class="game-logo">
                 <% shown_games = [] %>
-                  <% @profile.games.each do |game| %>
-                    <% if game.logo.present? && !shown_games.include?(game.name) %>
-                      <% shown_games << game.name %>
-                      <%= image_tag("game-logo/#{game.logo}", alt: game.name, class: "rounded-circle img-thumbnail small-round-logo") %>
-                    <% end %>
+                <% @profile.games.each do |game| %>
+                  <% if game.logo.present? && !shown_games.include?(game.name) %>
+                    <% shown_games << game.name %>
+                    <%= image_tag("game-logo/#{game.logo}", alt: game.name, class: "rounded-circle img-thumbnail small-round-logo", title: game.name) %>
                   <% end %>
+                <% end %>
                 </div>
               <% end %>
               <div class="add-game">
@@ -27,7 +26,7 @@
                 <% end %>
               </div>
             </div>
-      </div>
+    </div>
 
     <div class="form-bg col-10 mx-auto">
       <%= form_with(model: @profile, url: profile_path, method: :patch, html: { class: 'needs-validation', novalidate: '' }) do |form| %>
