@@ -3,6 +3,7 @@ class ConversationsController < ApplicationController
     @conversation = Conversation.find(params[:id])
     @messages = @conversation.messages
     @message = Message.new
+    @liked_user = @conversation.match.like.liker
   end
 
   def index
