@@ -59,8 +59,8 @@ class UserGamesController < ApplicationController
       query = query.where(gender: search_params[:gender])
     end
 
-    if search_params[:age].present?
-      query = query.where(age: search_params[:age])
+    if search_params[:age_min].present? && search_params[:age_max].present?
+      query = query.where("age >= ? AND age <= ?", search_params[:age_min].to_i, search_params[:age_max].to_i)
     end
 
     if search_params[:name].present?
@@ -77,6 +77,6 @@ class UserGamesController < ApplicationController
   end
 
   def search_params
-    params.permit(:name, :level, :mood, :gender, :age)
+    params.permit(:name, :level, :mood, :gender, :age, :age_min, :age_max)
   end
 end
