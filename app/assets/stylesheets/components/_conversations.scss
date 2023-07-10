@@ -46,3 +46,28 @@
 .conversation-card a:link, .conversation-card a:visited {
   color: #ffffff;
 }
+
+////////////
+
+.match-info {
+  text-align: center;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+}
+
+.username {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.avatar.rounded-circle {
+  border-color: #FA00FF;
+  border-width: 3px;
+  border-style: solid;
+}
