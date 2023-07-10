@@ -15,7 +15,7 @@
 
               <div class="search-card-infos <% unless index == 0 %>hidden<% end %>">
                 <h2><%= search_result.username %></h2>
-                <%= search_result.gender %> - <%= search_result.age %> yo
+                <%= search_result.gender.upcase %> - <%= search_result.age %> yo
               </div>
 
               <div class="search-card-infos <% unless index == 0 %>hidden<% end %>">
