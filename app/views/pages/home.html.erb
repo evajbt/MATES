@@ -47,12 +47,23 @@
 
 
       <div class="mx-auto">
-        <%= form.label :age, "Age", class: "form-label" %>
-        <div class="InputContainer">
-          <%= form.number_field :age, class: "input custom-number-input", no_spinner: true %>
-        </div>
 
+        <div class="d-flex justify-content-between mx-3">
+          <%= form.label :age_min, "Age Min", class: "form-label" %>
+          <%= form.label :age_max, "Age Max", class: "form-label" %>
+        </div>
+        <div class="d-flex justify-content-between">
+          <div class="InputContainer2">
+            <%= form.number_field :age_min, class: "input custom-number-input", no_spinner: true %>
+          </div>
+          <div class="InputContainer2">
+            <%= form.number_field :age_max, class: "input custom-number-input", no_spinner: true %>
+          </div>
+        </div>
       </div>
+
+
+
 
 
 
