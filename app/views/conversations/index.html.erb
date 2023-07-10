@@ -35,8 +35,15 @@
             <% end %>
           </div>
         </div>
-        <div class="my-auto">
+
+      <div class="dropdown">
+        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fa-solid fa-ellipsis-vertical"></i>
+        </a>
+
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <%= link_to "Delete conversation", conversation_path(conversation), method: :delete, data: { confirm: "Are you sure?" }, class: "dropdown-item" %>
+          <%= link_to "Show profile", profile_path(conversation.sender.id), class: "dropdown-item" %>
         </div>
       </div>
     <% end %>
