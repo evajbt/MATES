@@ -1,16 +1,47 @@
+_search.scss
+
+.cards-container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.cards {
+  width: calc(100vw - 50px);
+  height: calc(100vh - 100px);
+  margin: 20px auto;
+  position: relative;
+}
+
 .search-card{
+  height: 100%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  width: 250px;
-  height: 450px;
-  margin: 40px auto;
   flex-shrink: 0;
   border-radius: 16px;
   background: url(user_pp.png) center center / cover no-repeat;
   box-shadow: 0px -225px 98px -13px rgba(0, 0, 0, 0.78) inset;
   padding: 200px 8px 30px 8px;
+  position: absolute;
+  transition: transform 0.3s ease-in-out;
 }
+
+.hidden {
+  visibility: hidden;
+}
+
+.suggestion-div{
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease-in-out;
+  padding: 30px;
+}
+
 .search-card-infos{
   color: #FFF;
   /* Body/Regular */

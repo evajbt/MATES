@@ -9,3 +9,6 @@ application.register("conversation-subscription", ConversationSubscriptionContro
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import UserGamesController from "./user_games_controller"
+application.register("user-games", UserGamesController)
