@@ -6,6 +6,8 @@ export default class extends Controller {
   static targets = ["messages"]
 
   connect() {
+    this.currentUserId = document.body.dataset.currentUserId;
+
     console.log(this.messagesTarget)
     this.channel = createConsumer().subscriptions.create(
       { channel: "ConversationChannel", id: this.conversationIdValue },
@@ -15,9 +17,23 @@ export default class extends Controller {
   }
 
   #insertMessageAndScrollDown(data) {
-    this.messagesTarget.insertAdjacentHTML("beforeend", data)
-    console.log(this.messagesTarget.scrollHeight)
-    this.messagesTarget.scrollIntoView({ behavior: 'smooth', block: 'end' })
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = data;
+
+    const newMessage = tempDiv.firstChild;
+
+    const userId = newMessage.dataset.userId;
+    console.log('UserId: ', userId, ', CurrentUserId: ', this.currentUserId);
+    if (userId == this.currentUserId) {
+      newMessage.classList.add('message-user');
+      newMessage.querySelector('.bubble').classList.add('bubble-user');
+    } else {
+      newMessage.classList.add('message-other');
+      newMessage.querySelector('.bubble').classList.add('bubble-other');
+    }
+
+    this.messagesTarget.appendChild(newMessage);
+    this.messagesTarget.scrollIntoView({ behavior: 'smooth', block: 'end' });
   }
 
   disconnect() {

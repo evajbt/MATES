@@ -71,3 +71,33 @@
   border-width: 3px;
   border-style: solid;
 }
+
+.message-user,
+.message-other {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.message-user {
+  justify-content: flex-end;
+}
+
+.message-other {
+  justify-content: flex-start;
+}
+
+.bubble {
+  padding: 10px 20px;
+  border-radius: 20px;
+  margin: 0 10px;
+}
+
+.bubble-user {
+  background-color: white;
+  color: black;
+}
+
+.bubble-other {
+  background-color: black;
+  color: white;  
+}

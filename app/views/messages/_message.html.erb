@@ -1,5 +1,5 @@
-
-<div class="message">
-  <strong><%= message.user.username %></strong>
-  <p><%= message.content %></p>
+<div class="message <%= message.user == current_user ? 'message-user' : 'message-other' %>" data-user-id="<%= message.user.id %>">
+  <div class="bubble <%= message.user == current_user ? 'bubble-user' : 'bubble-other' %>">
+    <p><%= message.content %></p>
+  </div>
 </div>
