@@ -10,3 +10,29 @@
 .img-thumbnail {
   padding: 0rem;
 }
+.profile-image-container {
+  position: relative;
+}
+
+.camera-icon-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #000;
+  cursor: pointer;
+  z-index: 1;
+}
+.fond-camera{
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+  top: 31%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #000;
+  cursor: pointer;
+  z-index: 1;
+}
