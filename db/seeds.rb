@@ -1,4 +1,3 @@
-
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
@@ -21,207 +20,151 @@ puts "Deleting all"
 
 puts "Creating User list"
 
-user1 = User.create!(
-  username: "Jean",
-  age: 38,
-  gender: "man",
-  email: "jean@mail.com",
-  password: "123456789"
-)
-
-user1.photo.attach(io: File.open(Rails.root.join('app/assets/images/profil-pic/Jean.jpg')), filename: 'Jean.jpg')
-
-user2 = User.create!(
+users = User.create!([
+  {
+    username: "Jean",
+    age: 18,
+    gender: "man",
+    email: "jean@mail.com",
+    password: "123456789"
+  },
+  {
     username: "Anette",
-    age: 41,
+    age: 30,
     gender: "woman",
     email: "anette@mail.com",
-    password: "123456789",
-)
-
-user2.photo.attach(io: File.open(Rails.root.join('app/assets/images/profil-pic/Anette.jpg')), filename: 'Anette.jpg')
-
-user3 = User.create!(
+    password: "123456789"
+  },
+  {
     username: "Paul",
     age: 14,
     gender: "man",
     email: "paul@mail.com",
-    password: "123456789",
-)
-
-user3.photo.attach(io: File.open(Rails.root.join('app/assets/images/profil-pic/Paul.jpg')), filename: 'Paul.jpg')
-
-user4 = User.create!(
+    password: "123456789"
+  },
+  {
     username: "Marie",
     age: 19,
     gender: "woman",
     email: "marie@mail.com",
     password: "123456789"
-)
-user4.photo.attach(io: File.open(Rails.root.join('app/assets/images/profil-pic/Marie.jpg')), filename: 'Marie.jpg')
-
-user5 = User.create!(
+  },
+  {
     username: "ShadowSlayer",
     age: 24,
     gender: "man",
     email: "shadowslayer@mail.com",
     password: "123456789"
-)
-
-user5.photo.attach(io: File.open(Rails.root.join('app/assets/images/profil-pic/Shadowslayer.jpg')), filename: 'Shadowslayer.jpg')
-
-user6 = User.create!(
-  username: "EpicGamerGirl",
-  age: 21,
-  gender: "woman",
-  email: "epicgamergirl@mail.com",
-  password: "gamingqueen"
-)
-
-user6.photo.attach(io: File.open(Rails.root.join('app/assets/images/profil-pic/Epicgamergirl.jpg')), filename: 'Epicgamergirl.jpg')
-
-user7 = User.create!(
-  username: "NinjaWarrior",
-  age: 28,
-  gender: "man",
-  email: "ninjawarrior@mail.com",
-  password: "123456789"
-)
-
-user7.photo.attach(io: File.open(Rails.root.join('app/assets/images/profil-pic/Ninjawarrior.jpg')), filename: 'Ninjawarrior.jpg')
-
-user8 = User.create!(
-  username: "PixelWizard",
-  age: 19,
-  gender: "man",
-  email: "pixelwizard@mail.com",
-  password: "123456789"
-)
-
-user8.photo.attach(io: File.open(Rails.root.join('app/assets/images/profil-pic/Pixelwizard.jpg')), filename: 'Pixelwizard.jpg')
-
-user9 = User.create!(
-  username: "SavageQueen",
-  age: 26,
-  gender: "woman",
-  email: "savagequeen@mail.com",
-  password: "123456789"
-)
-
-user9.photo.attach(io: File.open(Rails.root.join('app/assets/images/profil-pic/Savagequeen.jpg')), filename: 'Savagequeen.jpg')
-
-user10 = User.create!(
-  username: "CyberSamurai",
-  age: 30,
-  gender: "man",
-  email: "cybersamurai@mail.com",
-  password: "123456789"
-)
-
-user10.photo.attach(io: File.open(Rails.root.join('app/assets/images/profil-pic/Cybersamurai.jpg')), filename: 'Cybersamurai.jpg')
-
-user11 = User.create!(
-  username: "RetroGamerBoy",
-  age: 23,
-  gender: "man",
-  email: "retrogamerboy@mail.com",
-  password: "123456789"
-)
-
-user11.photo.attach(io: File.open(Rails.root.join('app/assets/images/profil-pic/Retrogamerboy.jpg')), filename: 'Retrogamerboy.jpg')
-
-user12 = User.create!(
-  username: "MysticMage",
-  age: 27,
-  gender: "woman",
-  email: "mysticmage@mail.com",
-  password: "123456789"
-)
-
-user12.photo.attach(io: File.open(Rails.root.join('app/assets/images/profil-pic/Mysticmage.jpg')), filename: 'Mysticmage.jpg')
-
-user13 = User.create!(
-  username: "Natank",
-  age: 24,
-  gender: "man",
-  email: "natank@mail.com",
-  password: "123456789"
-)
-
-user13.photo.attach(io: File.open(Rails.root.join('app/assets/images/profil-pic/Natank.jpg')), filename: 'Natank.jpg')
-
-user14 = User.create!(
-  username: "StealthyAssassin",
-  age: 29,
-  gender: "man",
-  email: "stealthyassassin@mail.com",
-  password: "123456789"
-)
-
-user14.photo.attach(io: File.open(Rails.root.join('app/assets/images/profil-pic/Stealthyassassin.jpg')), filename: 'Stealthyassassin.jpg')
-
-user15 = User.create!(
-  username: "GamingWarrior",
-  age: 20,
-  gender: "woman",
-  email: "gamingwarrior@mail.com",
-  password: "123456789"
-)
-
-user15.photo.attach(io: File.open(Rails.root.join('app/assets/images/profil-pic/Gamingwarrior.jpg')), filename: 'Gaming.warrior.jpg')
-
-user16 = User.create!(
-  username: "RapidReload",
-  age: 32,
-  gender: "man",
-  email: "rapidreload@mail.com",
-  password: "123456789"
-)
-
-user16.photo.attach(io: File.open(Rails.root.join('app/assets/images/profil-pic/Rapidreload.jpg')), filename: 'Rapidreload.jpg')
-
-user17 = User.create!(
-  username: "GalacticHero",
-  age: 31,
-  gender: "man",
-  email: "galactichero@mail.com",
-  password: "123456789"
-)
-
-user17.photo.attach(io: File.open(Rails.root.join('app/assets/images/profil-pic/Galactichero.jpg')), filename: 'Galactichero.jpg')
-
-user18 = User.create!(
-  username: "FierceWarrior",
-  age: 22,
-  gender: "woman",
-  email: "fiercewarrior@mail.com",
-  password: "123456789"
-)
-
-user18.photo.attach(io: File.open(Rails.root.join('app/assets/images/profil-pic/Fiercewarrior.jpg')), filename: 'Fiercewarrior.jpg')
-
-user19 = User.create!(
-  username: "MasterGamer",
-  age: 33,
-  gender: "man",
-  email: "mastergamer@mail.com",
-  password: "123456789"
-)
-
-user19.photo.attach(io: File.open(Rails.root.join('app/assets/images/profil-pic/Mastergamer.jpg')), filename: 'Mastergamer.jpg')
-
-user20 = User.create!(
-  username: "Evaainsworth",
-  age: 31,
-  gender: "woman",
-  email: "evaainsworth@gmail.com",
-  password: "123456789"
-)
-
-user20.photo.attach(io: File.open(Rails.root.join('app/assets/images/profil-pic/Evaainsworth.jpg')), filename: 'Evaainsworth.jpg')
+  },
+  {
+    username: "EpicGamerGirl",
+    age: 21,
+    gender: "woman",
+    email: "epicgamergirl@mail.com",
+    password: "gamingqueen"
+  },
+  {
+    username: "NinjaWarrior",
+    age: 28,
+    gender: "man",
+    email: "ninjawarrior@mail.com",
+    password: "123456789"
+  },
+  {
+    username: "PixelWizard",
+    age: 19,
+    gender: "man",
+    email: "pixelwizard@mail.com",
+    password: "123456789"
+  },
+  {
+    username: "SavageQueen",
+    age: 26,
+    gender: "woman",
+    email: "savagequeen@mail.com",
+    password: "123456789"
+  },
+  {
+    username: "CyberSamurai",
+    age: 30,
+    gender: "man",
+    email: "cybersamurai@mail.com",
+    password: "123456789"
+  },
+  {
+    username: "RetroGamerBoy",
+    age: 23,
+    gender: "man",
+    email: "retrogamerboy@mail.com",
+    password: "123456789"
+  },
+  {
+    username: "MysticMage",
+    age: 27,
+    gender: "woman",
+    email: "mysticmage@mail.com",
+    password: "123456789"
+  },
+  {
+    username: "DragonSlayer",
+    age: 25,
+    gender: "man",
+    email: "dragonslayer@mail.com",
+    password: "123456789"
+  },
+  {
+    username: "StealthyAssassin",
+    age: 29,
+    gender: "man",
+    email: "stealthyassassin@mail.com",
+    password: "123456789"
+  },
+  {
+    username: "GamingWarrior",
+    age: 20,
+    gender: "woman",
+    email: "gamingwarrior@mail.com",
+    password: "123456789"
+  },
+  {
+    username: "RapidReload",
+    age: 32,
+    gender: "man",
+    email: "rapidreload@mail.com",
+    password: "123456789"
+  },
+  {
+    username: "GalacticHero",
+    age: 31,
+    gender: "man",
+    email: "galactichero@mail.com",
+    password: "123456789"
+  },
+  {
+    username: "FierceWarrior",
+    age: 22,
+    gender: "woman",
+    email: "fiercewarrior@mail.com",
+    password: "123456789"
+  },
+  {
+    username: "MasterGamer",
+    age: 33,
+    gender: "man",
+    email: "mastergamer@mail.com",
+    password: "123456789"
+  },
+  {
+    username: "Evaainsworth",
+    age: 31,
+    gender: "woman",
+    email: "evaainsworth@gmail.com",
+    password: "123456789"
+  }
+  ])
 
 
-puts "Created #{User.count} users"
+puts "Created #{users.count} users"
 
 puts "Creating Game list"
 
@@ -244,229 +187,227 @@ games = Game.create!([
   }
 ])
 
-
-
 puts "Created #{games.count} games"
 
 user_games = UserGame.create!([
   {
-    user: user1,
+    user: users[0],
     game: games[1],
     mood: "Chill",
     level: "20"
   },
   {
-    user: user1,
+    user: users[1],
     game: games[2],
     mood: "Try hard",
     level: "32"
   },
   {
-    user: user2,
+    user: users[2],
     game: games[3],
     mood: "Chill",
     level: "63"
   },
   {
-    user: user3,
+    user: users[3],
     game: games[1],
     mood: "Chill",
     level: "47"
   },
   {
-    user: user3,
+    user: users[3],
     game: games[2],
     mood: "Try hard",
     level: "85"
   },
   {
-    user: user3,
+    user: users[3],
     game: games[0],
     mood: "Chill",
     level: "29"
   },
   {
-    user: user4,
+    user: users[4],
     game: games[1],
     mood: "Casual",
     level: "54"
   },
   {
-    user: user4,
+    user: users[4],
     game: games[3],
     mood: "Try hard",
     level: "92"
   },
   {
-    user: user5,
+    user: users[5],
     game: games[0],
     mood: "Chill",
     level: "43"
   },
   {
-    user: user5,
+    user: users[5],
     game: games[2],
     mood: "Competitive",
     level: "76"
   },
   {
-    user: user6,
+    user: users[6],
     game: games[1],
     mood: "Chill",
     level: "35"
   },
   {
-    user: user6,
+    user: users[6],
     game: games[3],
     mood: "Try hard",
     level: "89"
   },
   {
-    user: user7,
+    user: users[7],
     game: games[0],
     mood: "Casual",
     level: "27"
   },
   {
-    user: user8,
+    user: users[8],
     game: games[2],
     mood: "Chill",
     level: "49"
   },
   {
-    user: user9,
+    user: users[9],
     game: games[1],
     mood: "Chill",
     level: "68"
   },
   {
-    user: user10,
+    user: users[10],
     game: games[2],
     mood: "Try hard",
     level: "83"
   },
   {
-    user: user10,
+    user: users[10],
     game: games[3],
     mood: "Casual",
     level: "51"
   },
   {
-    user: user11,
+    user: users[11],
     game: games[0],
     mood: "Competitive",
     level: "91"
   },
   {
-    user: user12,
+    user: users[12],
     game: games[1],
     mood: "Chill",
     level: "33"
   },
   {
-    user: user12,
+    user: users[12],
     game: games[2],
     mood: "Try hard",
     level: "96"
   },
   {
-    user: user13,
+    user: users[13],
     game: games[0],
     mood: "Casual",
     level: "46"
   },
   {
-    user: user13,
+    user: users[13],
     game: games[3],
     mood: "Chill",
     level: "52"
   },
   {
-    user: user14,
+    user: users[14],
     game: games[1],
     mood: "Chill",
     level: "57"
   },
   {
-    user: user14,
+    user: users[14],
     game: games[2],
     mood: "Try hard",
     level: "84"
   },
   {
-    user: user14,
+    user: users[14],
     game: games[0],
     mood: "Casual",
     level: "25"
   },
   {
-    user: user15,
+    user: users[15],
     game: games[1],
     mood: "Competitive",
     level: "98"
   },
   {
-    user: user15,
+    user: users[15],
     game: games[3],
     mood: "Chill",
     level: "44"
   },
   {
-    user: user16,
+    user: users[16],
     game: games[0],
     mood: "Chill",
     level: "60"
   },
   {
-    user: user16,
+    user: users[16],
     game: games[2],
     mood: "Try hard",
     level: "78"
   },
   {
-    user: user17,
+    user: users[17],
     game: games[1],
     mood: "Casual",
     level: "36"
   },
   {
-    user: user17,
+    user: users[17],
     game: games[3],
     mood: "Chill",
     level: "59"
   },
   {
-    user: user18,
+    user: users[18],
     game: games[0],
     mood: "Competitive",
     level: "88"
   },
   {
-    user: user18,
+    user: users[18],
     game: games[1],
     mood: "Chill",
     level: "42"
   },
   {
-    user: user19,
+    user: users[19],
     game: games[2],
     mood: "Try hard",
     level: "95"
   },
   {
-    user: user19,
+    user: users[19],
     game: games[3],
     mood: "Casual",
     level: "53"
   },
   {
-    user: user20,
+    user: users[19],
     game: games[0],
     mood: "Chill",
     level: "39"
   },
   {
-    user: user20,
+    user: users[19],
     game: games[1],
     mood: "Competitive",
     level: "81"

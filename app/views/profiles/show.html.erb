@@ -1,44 +1,91 @@
 <div class="container my-5">
   <div class="row">
-    <div class="col-md-4">
-      <div class="text-center">
-<%= image_tag(@profile.photo.present? ? @profile.photo : 'user_pp.jpg', class: "rounded-circle img-thumbnail", width: 200) %>      </div>
+
+    <div class="text-center">
+      <h1 class="display-4">Profile</h1>
+        <%= image_tag(@profile.photo.present? ? @profile.photo : 'user_pp.png', class: "rounded-circle img-thumbnail", width: 200) %>
+          <i class="fa-regular fa-circle-camera" style="color: #fa00ff;"></i>
+            <div class="profile-info">
+              <h2><%= @profile.username %></h2>
+            </div>
+            <div class="games-logo-container">
+              <% if @profile.games.present? %>
+                <div class="game-logo">
+                <% shown_games = [] %>
+                <% @profile.games.each do |game| %>
+                  <% if game.logo.present? && !shown_games.include?(game.name) %>
+                    <% shown_games << game.name %>
+                    <%= image_tag("game-logo/#{game.logo}", alt: game.name, class: "rounded-circle img-thumbnail small-round-logo", title: game.name) %>
+                  <% end %>
+                <% end %>
+                </div>
+              <% end %>
+              <div class="add-game">
+                <%= link_to new_profile_user_game_path(@profile), class: "circle-btn" do %>
+                  <i class="fas fa-plus"></i>
+                <% end %>
+              </div>
+            </div>
     </div>
-    <div class="col-md-8">
-      <h1 class="display-4">My Profile</h1>
-      <dl class="row">
-        <dt class="col-sm-3">Username:</dt>
-        <dd class="col-sm-9"><%= @profile.username %></dd>
 
-        <dt class="col-sm-3">Age:</dt>
-        <dd class="col-sm-9"><%= @profile.age %></dd>
+    <div class="form-bg col-10 mx-auto">
+      <%= form_with(model: @profile, url: profile_path, method: :patch, html: { class: 'needs-validation', novalidate: '' }) do |form| %>
 
-        <dt class="col-sm-3">Gender:</dt>
-        <dd class="col-sm-9"><%= @profile.gender %></dd>
-
-        <dt class="col-sm-3">Email:</dt>
-        <dd class="col-sm-9"><%= @profile.email %></dd>
-      </dl>
-    </div>
-  </div>
-
-  <div class="my-5">
-    <h2 class="mb-3">My Games</h2>
-    <% @user_games.each do |user_game| %>
-      <div class="card mb-3">
-        <div class="card-body">
-          <h5 class="card-title"><%= user_game.game.name %></h5>
-          <p class="card-text">
-            <strong>Mood:</strong> <%= user_game.mood %><br>
-            <strong>Level:</strong> <%= user_game.level %>
-          </p>
-          <div class="d-flex">
-            <%= link_to "Edit", edit_profile_user_game_path(@profile, user_game), class: 'btn btn-primary me-2' %>
-            <%= button_to "Delete", profile_user_game_path(@profile, user_game), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger' %>
+          <div class="mt-2">
+            <%= form.label :username, class: 'form-label mt-4' %>
+              <div class="InputContainer">
+                <%= form.text_field :username, class: "input", required: true %>
+              </div>
+              <div class="invalid-feedback">
+                Please enter your username.
+            </div>
           </div>
-        </div>
-      </div>
-    <% end %>
-    <%= link_to "Add Game", new_profile_user_game_path(@profile), class: 'btn btn-success mt-3' %>
+
+          <div class="mt-2">
+            <%= form.label :age, class: 'form-label' %>
+              <div class="InputContainer">
+                <%= form.number_field :age, class: "input custom-number-input", required: true %>
+              </div>
+              <div class="invalid-feedback">
+                Please enter your age.
+              </div>
+          </div>
+
+          <div class="mt-2">
+            <%= form.label :gender, class: 'form-label' %>
+              <div class="InputContainer">
+                <%= form.select :gender, ['Male', 'Female', 'Other'], {}, {class: 'form-select input', required: true} %>
+              </div>
+              <div class="invalid-feedback">
+                Please select your gender.
+              </div>
+          </div>
+
+          <div class="mt-2">
+            <%= form.label :email, class: 'form-label' %>
+              <div class="InputContainer">
+                <%= form.email_field :email, class: 'input', required: true %>
+              </div>
+              <div class="invalid-feedback">
+                Please enter a valid email.
+              </div>
+          </div>
+
+          <div class="mt-2">
+            <%= form.label :photo, class: 'form-label' %>
+              <div class="InputContainer">
+                <%= form.file_field :photo, class: 'input', accept: 'image/*' %>
+              </div>
+          </div>
+
+          <div class="mx-auto">
+            <%= form.submit 'Update', class: 'btn custom-button' %>
+          </div>
+      <% end %>
+    </div>
+
+    <div class="d-flex justify-content-center align-items-center">
+      <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "text-white mt-3" %>
+    </div>
   </div>
 </div>
