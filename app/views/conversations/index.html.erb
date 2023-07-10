@@ -4,8 +4,12 @@
 
     <% @conversations.each do |conversation| %>
       <div class="conversation-card">
-        <div class="photo">
-          <%= image_tag(@profile.photo.present? ? @profile.photo : 'user_pp.png', class: "rounded-circle-mini img-thumbnail", width: 70) %>
+         <div class="photo">
+          <% if conversation.sender == current_user %>
+            <%= image_tag(conversation.recipient.photo, class: "rounded-circle-mini img-thumbnail", width: 70) %>
+          <% else %>
+            <%= image_tag(conversation.sender.photo, class: "rounded-circle-mini img-thumbnail", width: 70) %>
+          <% end %>
         </div>
         <div class="conversation-card-infos">
           <div>
@@ -17,7 +21,8 @@
           </div>
           <div class="last-msg">
             <% if conversation.messages.any? %>
-              <%= "- #{truncate(conversation.messages.last.content, length: 20)}" %>
+              <% last_message = conversation.messages.last %>
+              <%= "- #{truncate(last_message.content, length: 20)}" %>
             <% else %>
               No messages
             <% end %>
