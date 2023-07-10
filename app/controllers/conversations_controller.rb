@@ -4,6 +4,7 @@ class ConversationsController < ApplicationController
     @messages = @conversation.messages
     @message = Message.new
     @matched_user = (@conversation.match.like.liker == current_user) ? @conversation.match.like.liked : @conversation.match.like.liker
+    @hidefooter = true
   end
 
   def index

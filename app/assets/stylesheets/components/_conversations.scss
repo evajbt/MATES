@@ -1,3 +1,12 @@
+#conversation {
+  height: 760px;
+  overflow-y: scroll;
+}
+
+#messages {
+  z-index: 1;
+}
+
 .conversations-container {
   display: flex;
   flex-direction: column;
@@ -28,7 +37,6 @@
 }
 .last-msg-time{
   color: #3D3B3B;
-  /* Body/Regular */
   font-size: 17px;
   font-family: SF Pro;
   font-style: normal;
@@ -51,6 +59,34 @@
 
 .match-info {
   text-align: center;
+}
+
+.fa-arrow-left {
+  color: #ffffff;
+  margin: 20px 20px;
+  font-size: 20px;
+}
+
+.match-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+// .match-info-container {
+//   position: sticky;
+//   top: 40px;
+//   z-index: 100;
+// }
+
+.match-info-container {
+  position: relative;
+  backdrop-filter: blur(5px);
+}
+
+.conversation-content {
+  overflow: auto;
+  height: 534px;
+  position: relative;
 }
 
 .avatar {
@@ -94,10 +130,60 @@
 
 .bubble-user {
   background-color: white;
+}
+
+.bubble-user p {
   color: black;
 }
 
 .bubble-other {
   background-color: black;
-  color: white;  
+  color: white;
+}
+
+// .input-message {
+//   margin: 0 auto;
+// }
+
+// .message-wrapper{
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   bottom: 30px;
+//   position: fixed;
+//   right: 80px;
+//   left: 80px;
+//   z-index: 100;
+// }
+
+
+.message-wrapper {
+  position: relative;
+  bottom: 10px;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.input-message {
+  flex-grow: 1;
+  padding: 10px;
+  border-radius: 10px;
+  padding-right: 40px;
+}
+
+.submit-button {
+  position: absolute;
+  right: 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.fa-paper-plane {
+  font-size: 16px;
+  color: #FA00FF;
 }
