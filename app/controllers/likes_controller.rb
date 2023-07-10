@@ -9,7 +9,7 @@ class LikesController < ApplicationController
 
       unless Conversation.exists?(sender_id: current_user.id, recipient_id: liked_user.id) || Conversation.exists?(sender_id: liked_user.id, recipient_id: current_user.id)
         @conversation = Conversation.create(match: @match, recipient: current_user, sender: liked_user)
-        redirect_to profile_match_path(params[:profile_id], @match.id), notice: "User matched successfully."
+
       end
       respond_to do |format|
         format.html { redirect_to profile_match_path(params[:profile_id], @match.id) }

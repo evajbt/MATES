@@ -70,6 +70,8 @@ export default class extends Controller {
       .then(data => {
         console.log(data);
         // Handle the response data as needed
+        // const matchId = data.match_id;
+        // window.location.href = `/matches#show/${matchId}`;
       })
       .catch(error => {
         console.error("Error:", error);
