@@ -9,13 +9,11 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    puts params.inspect
     @profile = User.find(params[:id])
     if @profile.update(profile_params)
-      # Successful
+      response.headers['Location'] = url_for(@profile.photo)
       redirect_to profile_path(@profile), notice: "User information updated successfully."
     else
-      # Failed
       render :edit
     end
   end
