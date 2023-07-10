@@ -6,10 +6,12 @@
         <%= image_tag(@profile.photo.present? ? @profile.photo : 'user_pp.png', class: "rounded-circle img-thumbnail", width: 200, id: 'profile-image') %>
         <%= form_with(model: @profile, url: profile_path, method: :patch, html: { class: 'needs-validation profile-update', novalidate: '' }) do |form| %>
           <%= form.label :photo, class: 'd-none' %>
-          <%= form.file_field :photo, class: 'd-none', id: 'photoUpload', accept: 'image/*', onchange: 'this.form.submit();' %>
-          <label for="photoUpload">
-            <i class="fa fa-camera" style="color: #fa00ff; cursor: pointer;"></i>
-          </label>
+          <div class="fond-camera">
+            <%= form.file_field :photo, class: 'd-none', id: 'photoUpload', accept: 'image/*', onchange: 'this.form.submit();' %>
+            <label for="photoUpload" class="camera-icon-label">
+              <i class="fa fa-camera" style="cursor: pointer;"></i>
+            </label>
+          </div>
         <% end %>
             <div class="profile-info">
               <h2><%= @profile.username %></h2>
