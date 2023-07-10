@@ -1,11 +1,13 @@
 #main-footer {
-  position: relative;
+  position: fixed;
+  bottom: 0;
+  left: 0;
   width: 100%;
   z-index: 100;
 }
 
 .footer-mobile {
-  background-color: #1A1524;
+  background-color: #000;
   height: 80px;
   display: flex;
   align-items: center;
