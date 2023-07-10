@@ -21,7 +21,7 @@
               <div class="search-card-infos <% unless index == 0 %>hidden<% end %>">
                   <% user_game = search_result.user_games.find_by(game: Game.find_by(name: params[:name])) %>
                   <% if user_game %>
-                    <%= user_game.game.name %>
+                    <%= image_tag("game-logo/#{user_game.game.logo}", alt: user_game.game.name, class: "rounded-circle-mini img-thumbnail small-round-logo", title: user_game.game.name) %>
                     <br>
                     Mood: <%= user_game.mood %>
                     <br>
