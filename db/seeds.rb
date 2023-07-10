@@ -372,8 +372,8 @@ user_games = UserGame.create!([
   {
     user: user13,
     game: games[0],
-    mood: "Casual",
-    level: "46"
+    mood: "Competitive",
+    level: "100"
   },
   {
     user: user13,
@@ -462,7 +462,7 @@ user_games = UserGame.create!([
   {
     user: user20,
     game: games[0],
-    mood: "Chill",
+    mood: "Competitive",
     level: "39"
   },
   {
