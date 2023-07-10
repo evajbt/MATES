@@ -1,4 +1,3 @@
-_search.scss
 
 .cards-container {
   width: 100vw;
@@ -21,7 +20,12 @@ _search.scss
   flex-direction: column;
   flex-shrink: 0;
   border-radius: 16px;
-  background: url(user_pp.png) center center / cover no-repeat;
+  //background: url('<%= current_user.photo.url %>') center center / cover no-repeat;
+// Assurez-vous d'avoir accès à la propriété `photo` du `current_user`
+background-position: center;
+background-size: cover;
+background-repeat: no-repeat;
+
   box-shadow: 0px -225px 98px -13px rgba(0, 0, 0, 0.78) inset;
   padding: 200px 8px 30px 8px;
   position: absolute;
