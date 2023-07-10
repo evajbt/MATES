@@ -1,79 +1,54 @@
-<body>
+<div class="container">
+  <div class="row">
 
-  <div class="container">
-    <div class="row">
-      <% if @search_results.empty? %>
-        <p>No mates found for you</p>
-      <% else %>
-        <div class="swiper-container">
-          <div class="swiper-wrapper">
+    <% if @search_results.empty? %>
+      <p>No mates found for you</p>
+    <% else %>
+
+        <div class="cards-container" data-controller="user-games">
+          <div class="cards">
             <% @search_results.each_with_index do |search_result, index| %>
-              <div class="swiper-slide" id="slide-<%= index %>">
-                <div class="search-card">
-                  <div class="swiper-pagination"></div>
-                  <div class="search-card-infos">
-                    <h2>
-                      <%= search_result.username %>
-                    </h2>
-                    <%= search_result.gender %> - <%= search_result.age %> ans
-                  </div>
-                  <div class="search-card-infos">
-                      <% user_game = search_result.user_games.find_by(game: Game.find_by(name: params[:name])) %>
-                      <% if user_game %>
-                        <%= user_game.mood %>
-                        <%= user_game.level %>
-                        <%= user_game.game.name %>
-                  </div>
-                  <div class="search-block-btn">
-                    <%= button_to profile_likes_path(profile_id: search_result.id, current_user_id: current_user.id, name: params[:name], level: params[:level], mood: params[:mood], gender: params[:gender], age: params[:age]), method: :post, params: { liked_user_id: search_result.id }, class: "dislike-button", remote: true, onclick: "closeCardAndMoveToNextSlide(#{index})" do %>
-                    <i class="fa-solid fa-xmark"></i>
-                    <% end %>
-                    <%= button_to profile_likes_path(profile_id: search_result.id, current_user_id: current_user.id, name: params[:name], level: params[:level], mood: params[:mood], gender: params[:gender], age: params[:age]), method: :post, params: { liked_user_id: search_result.id }, class: "like-button", remote: true, onclick: "closeCardAndMoveToNextSlide(#{index})" do %>
-                      <i class="fa-regular fa-heart"></i>
-                    <% end %>
-                  </div>
+            <div class="search-card" style="z-index: calc(100 - <%= index %>);"
+                          data-user-games-target="card"
+                          data-profile-id="<%= search_result.id %>"
+                          data-current-user-id="<%= current_user.id %>">
+
+              <div class="search-card-infos <% unless index == 0 %>hidden<% end %>">
+                <h2><%= search_result.username %></h2>
+                <%= search_result.gender %> - <%= search_result.age %> ans
+              </div>
+
+              <div class="search-card-infos <% unless index == 0 %>hidden<% end %>">
+                  <% user_game = search_result.user_games.find_by(game: Game.find_by(name: params[:name])) %>
+                  <% if user_game %>
+                    <%= user_game.mood %>
+                    <%= user_game.level %>
+                    <%= user_game.game.name %>
                   <% else %>
                     <p>User game not found</p>
                   <% end %>
-                </div>
               </div>
+
+              <div class="search-block-btn">
+                   <button class="dislike-button" data-action="user-games#handleSwipeLeft:prevent"><i class="fa-solid fa-xmark"></i></button>
+
+                <%= button_to(profile_likes_path(profile_id: search_result.id, current_user_id: current_user.id, name: params[:name], level: params[:level], mood: params[:mood], gender: params[:gender], age: params[:age]), method: :post, params: { liked_user_id: search_result.id }, class: "like-button", remote: true, data: { action: "user-games#handleSwipeRight:prevent"} ) do %>
+                  <i class="fa-regular fa-heart"></i>
+                <% end %>
+
+              </div>
+
+            </div>
             <% end %>
+            <div class="suggestion-div hidden">
+              <div>
+                <h2>Try Again</h2>
+                <p>There are no more profiles to display. Please try again later.</p>
+                <button class="btn custom-button">try again bro</button>
+              </div>
+            </div>
           </div>
-
         </div>
-      <% end %>
-    </div>
+    <% end %>
   </div>
-
-  <!-- Incluez le fichier JavaScript de SwiperJS -->
-  <script src="chemin/vers/swiper.js"></script>
-
-  <!-- Initialisez le carousel SwiperJS -->
-  <script>
-    var swiper = new Swiper('.swiper-container', {
-      slidesPerView: 'auto',
-      spaceBetween: 16,
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-    });
-  </script>
-</body>
-<script>
-  $(document).ready(function() {
-    $(".like-button").on("ajax:success", function(event) {
-      // Réponse réussie de la requête AJAX
-      var data = event.detail[0];
-
-      // Mettre à jour l'interface utilisateur en conséquence
-      if (data.success) {
-        // Le like a été enregistré avec succès, effectuez les modifications nécessaires dans l'interface
-        alert("User liked successfully.");
-      } else {
-        // Une erreur s'est produite lors de l'enregistrement du like, affichez un message d'erreur ou effectuez d'autres actions nécessaires
-        alert("An error occurred while liking the user.");
-      }
-    });
-  });
-</script>
+</div>
