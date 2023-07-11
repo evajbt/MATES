@@ -12,6 +12,10 @@ export default class extends Controller {
     )
     console.log(`Subscribed to the conversation with the id ${this.conversationIdValue}.`)
     this.messagesTarget.scrollIntoView({ behavior: 'smooth', block: 'end' });
+
+    window.addEventListener('turbo:load', () => {
+      this.messagesTarget.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    })
   }
 
   #insertMessageAndScrollDown(data) {
@@ -26,6 +30,7 @@ export default class extends Controller {
 
     this.messagesTarget.scrollIntoView({ behavior: 'smooth', block: 'end' });
   }
+
 
   #buildUserMessage(message) {
     return `
