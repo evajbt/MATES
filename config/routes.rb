@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "pages#home"
+  root to: "user_games#search"
 
   resources :profiles do
     resources :user_games, only: [:new, :create, :edit, :update, :destroy]
@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :conversations, only: [:index, :show, :destroy] do
     resources :messages, only: [:create]
   end
+  get "/search" => "pages#home"
 
   # For ActionCable
   mount ActionCable.server => '/cable'

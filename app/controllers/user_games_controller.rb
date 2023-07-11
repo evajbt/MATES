@@ -1,4 +1,6 @@
 class UserGamesController < ApplicationController
+  before_action :authenticate_user!, only: [:search]
+
   def new
     @profile = User.find(params[:profile_id])
     @user_game = @profile.user_games.build
