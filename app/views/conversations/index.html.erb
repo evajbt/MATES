@@ -1,10 +1,10 @@
 <div class="container my-5">
-<div class="conversations-container">
-  <h1>Messages</h1>
+  <div class="conversations-container">
+    <h1>Messages</h1>
 
     <% @conversations.each do |conversation| %>
       <div class="conversation-card">
-         <div class="photo">
+        <div class="photo">
           <% if conversation.sender == current_user %>
             <%= image_tag(conversation.recipient.photo, class: "rounded-circle-mini img-thumbnail", width: 70) %>
           <% else %>
@@ -36,16 +36,20 @@
           </div>
         </div>
 
-      <div class="dropdown">
-        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fa-solid fa-ellipsis-vertical"></i>
-        </a>
+        <div class="dropdown">
+          <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink_<%= conversation.id %>" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </a>
 
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <%= link_to "Delete conversation", conversation_path(conversation), method: :delete, data: { confirm: "Are you sure?" }, class: "dropdown-item" %>
-          <%= link_to "Show profile", profile_path(conversation.sender.id), class: "dropdown-item" %>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink_<%= conversation.id %>">
+            <%= link_to "Delete conversation", conversation_path(conversation), method: :delete, data: { confirm: "Are you sure?" }, class: "dropdown-item" %>
+            <%= link_to "Show profile", profile_path(conversation.sender.id), class: "dropdown-item", data: { toggle: "modal", target: "#profileModal" } %>
+          </div>
         </div>
       </div>
+
+
+
     <% end %>
-</div>
+  </div>
 </div>

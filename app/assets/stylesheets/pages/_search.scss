@@ -55,6 +55,7 @@
   line-height: 22px;
   letter-spacing: -0.4px;
   margin: 0;
+
 }
 .search-card-infos h2{
   color: #FFF;
@@ -66,6 +67,9 @@
   line-height: 41px;
   letter-spacing: -0.4px;
   margin-bottom: 0px;
+  // -webkit-backdrop-filter: blur(10px);
+  // backdrop-filter: blur(10px);
+
 }
 .search-block-btn{
   display: flex;
