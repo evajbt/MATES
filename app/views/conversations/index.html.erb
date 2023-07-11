@@ -42,11 +42,12 @@
           </a>
 
           <div class="dropdown-menu">
-            <div class="dropdown-item">
+            <div class="dropdown-item" style="display: flex;align-items: center;">
               <i class="fa-solid fa-trash" style="color: white; margin-right:10px"></i>
               <%= button_to "Delete conversation",
                 conversation_path(conversation),
                 method: :delete,
+                class: "btn-delete",
                 data: {
                   action: "click->conversation#deleteConversation",
                   conversation_id_value: conversation.id,
