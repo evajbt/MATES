@@ -5,7 +5,7 @@ export default class extends Controller {
   static targets = ['card'];
 
   connect() {
-    console.log("on tinder pas ns ? ver. 44");
+    console.log("on tinder pas ns ? ver. 46");
 
     // Initialize Hammer.js
    this.cardTargets.forEach(cardElement => {
@@ -68,11 +68,17 @@ export default class extends Controller {
     })
       .then(response => response.json())
       .then(data => {
-        console.log(data);
-        // Handle the response data as needed
+          if (data.match_path) {
+            console.log(data);
+            console.log(data.match_path)
+          window.location.href = data.match_path;
+        } else {
+          console.log(data);
+        }
       })
       .catch(error => {
         console.error("Error:", error);
+        console.log(form.action);
         // Handle any errors that occur during the fetch request
     });
   }

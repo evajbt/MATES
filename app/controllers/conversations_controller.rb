@@ -10,4 +10,10 @@ class ConversationsController < ApplicationController
   def index
     @conversations = Conversation.where("sender_id = ? OR recipient_id = ?", current_user.id, current_user.id)
   end
+
+  def destroy
+    @conversation = Conversation.find(params[:id])
+    @conversation.destroy
+    redirect_to conversations_path
+  end
 end
