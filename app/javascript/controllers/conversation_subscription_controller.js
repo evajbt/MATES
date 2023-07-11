@@ -8,13 +8,13 @@ export default class extends Controller {
   connect() {
     this.channel = createConsumer().subscriptions.create(
       { channel: "ConversationChannel", id: this.conversationIdValue },
-      { received: data => this.#insertMessageAndScrollDown(data)}
+      { received: data => this.#insertMessageAndScrollDown(data) }
     )
     console.log(`Subscribed to the conversation with the id ${this.conversationIdValue}.`)
-    this.messagesTarget.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    this.messagesTarget.scrollIntoView({ behavior: 'smooth', block: 'end' })
 
     window.addEventListener('turbo:load', () => {
-      this.messagesTarget.scrollIntoView({ behavior: 'smooth', block: 'end' });
+      this.messagesTarget.scrollIntoView({ behavior: 'smooth', block: 'end' })
     })
   }
 
@@ -24,34 +24,32 @@ export default class extends Controller {
       const userMessage = this.#buildUserMessage(data.message)
       this.messagesTarget.insertAdjacentHTML("beforeend", userMessage)
     } else {
-      const otherMessage = this.#builOtherdUserMessage(data.message)
+      const otherMessage = this.#buildOtherUserMessage(data.message)
       this.messagesTarget.insertAdjacentHTML("beforeend", otherMessage)
     }
 
-    this.messagesTarget.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    this.messagesTarget.scrollIntoView({ behavior: 'smooth', block: 'end' })
   }
-
 
   #buildUserMessage(message) {
     return `
       <div class="message-user">
         <div class="bubble bubble-user">
-          ${ message }
+          ${message}
         </div>
       </div>
     `
   }
 
-    #builOtherdUserMessage(message) {
+  #buildOtherUserMessage(message) {
     return `
       <div class="message-other">
         <div class="bubble bubble-other">
-          ${ message }
+          ${message}
         </div>
       </div>
     `
   }
-
 
   disconnect() {
     console.log("Unsubscribed from the chatroom")
@@ -60,5 +58,12 @@ export default class extends Controller {
 
   resetForm(event) {
     event.target.reset()
+  }
+
+  deleteConversation(event) {
+    event.preventDefault()
+
+    const conversationId = event.target.dataset.conversationIdValue
+    this.channel.perform('delete_conversation', { conversation_id: conversationId })
   }
 }

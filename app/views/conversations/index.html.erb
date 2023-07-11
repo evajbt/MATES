@@ -3,7 +3,7 @@
     <h1>Messages</h1>
 
     <% @conversations.each do |conversation| %>
-      <div class="conversation-card">
+      <div class="conversation-card" data-id="<%= conversation.id %>">
         <div class="photo">
           <% if conversation.sender == current_user %>
             <%= image_tag(conversation.recipient.photo, class: "rounded-circle-mini img-thumbnail", width: 70) %>
@@ -37,15 +37,22 @@
         </div>
 
         <div class="dropdown">
-          <a class="dropdown-toggle" href="#" role="button"  data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fa-solid fa-ellipsis-vertical"></i>
           </a>
 
           <div class="dropdown-menu">
             <div class="dropdown-item">
               <i class="fa-solid fa-trash" style="color: white; margin-right:10px"></i>
-              <%= link_to "Delete conversation", conversation_path(conversation), method: :delete, data: { confirm: "Are you sure?" } %>
+              <%= button_to "Delete conversation",
+                conversation_path(conversation),
+                method: :delete,
+                data: {
+                  action: "click->conversation#deleteConversation",
+                  conversation_id_value: conversation.id,
+                  confirm: "Are you sure?" } %>
             </div>
+
             <% if conversation.sender == current_user %>
               <div class="dropdown-item">
                 <i class="fas fa-user fa-lg" style="color: white; margin-right:10px"></i>
@@ -60,9 +67,6 @@
           </div>
         </div>
       </div>
-
-
-
     <% end %>
   </div>
 </div>
