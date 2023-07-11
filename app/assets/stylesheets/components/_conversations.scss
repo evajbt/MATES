@@ -50,12 +50,21 @@
   font-weight: bold;
   font-size: large;
 }
+// .conversation-card a:hover {
+//   color: #33196B;
+// }
 .dropdown-menu{
   border-radius: 8px;
   background: linear-gradient(45deg, #33196B 0%, #FA00FF 100%);
   border-color: #33196B;
 }
-
+.dropdown-item:hover{
+  background: none;
+  color: #33196B;
+}
+.profile-link{
+  display: inline;
+}
 
 // .conversation-card a:link, .conversation-card a:visited {
 //   color: #ffffff;
