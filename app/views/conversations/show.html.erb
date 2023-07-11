@@ -1,32 +1,43 @@
 <div class="container my-5">
-<div id="conversation" data-controller="conversation-subscription" data-conversation-subscription-conversation-id-value="<%= @conversation.id %>">
-  <div class="match-info-container" >
-    <%= link_to conversations_path do  %>
-      <i class="fa-solid fa-arrow-left"></i>
-    <% end %>
+  <div id="conversation" data-controller="conversation-subscription"
+                        data-conversation-subscription-conversation-id-value="<%= @conversation.id %>"
+                        data-conversation-subscription-current-user-id-value="<%= current_user.id %>">
+    <div class="match-info-container" >
+      <%= link_to conversations_path do  %>
+        <i class="fa-solid fa-arrow-left"></i>
+      <% end %>
 
-    <div class="match-wrapper" >
-      <div class="match-info">
-        <%= image_tag(@matched_user.photo.present? ? @matched_user.photo : 'user_pp.png', class: "avatar rounded-circle") %>
-        <div class="username"><%= @matched_user.username %></div>
+      <div class="match-wrapper" >
+        <div class="match-info">
+          <%= image_tag(@matched_user.photo.present? ? @matched_user.photo : 'user_pp.png', class: "avatar rounded-circle") %>
+          <div class="username"><%= @matched_user.username %></div>
+        </div>
       </div>
     </div>
-  </div>
+
+
     <div class="conversation-content">
-      <div id="messages" data-conversation-subscription-target="messages">
+      <div class="messages" data-conversation-subscription-target="messages">
         <% @conversation.messages.each do |message| %>
-          <%= render 'messages/message', message: message %>
+          <div id="message-<%= message.id %>">
+            <div class="message-<%= message.user == current_user ? 'user' : 'other' %>">
+              <div class="bubble bubble-<%= message.user == current_user ? 'user' : 'other' %>">
+                <%= render 'messages/message', message: message %>
+              </div>
+            </div>
+          </div>
         <% end %>
       </div>
     </div>
 
 
-<%= form_with(model: [ @conversation, @conversation.messages.new ], local: false, html: { data: { action: "turbo:submit-end->conversation-subscription#resetForm" }}, class: "message-wrapper" ) do |form| %>
-  <div class="input-container">
-    <%= form.text_field :content, placeholder: "Type a message...", class: "input-message" %>
-    <button type="submit" class="submit-button">
-      <i class="fas fa-paper-plane"></i>
-    </button>
+    <%= form_with(model: [ @conversation, @message ], local: false, html: { data: { action: "turbo:submit-end->conversation-subscription#resetForm" }}, class: "message-wrapper" ) do |form| %>
+      <div class="input-container">
+        <%= form.text_field :content, placeholder: "Type a message...", class: "input-message" %>
+        <button type="submit" class="submit-button">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </div>
+    <% end %>
   </div>
-<% end %>
-</div>
+</div> 
