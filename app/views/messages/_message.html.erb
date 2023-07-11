@@ -1,5 +1,5 @@
-<div class="message <%= message.user == current_user ? 'message-user' : 'message-other' %>" data-user-id="<%= message.user.id %>">
-  <div class="bubble <%= message.user == current_user ? 'bubble-user' : 'bubble-other' %>">
-    <p><%= message.content %></p>
-  </div>
-</div>
+<small class="<%= message.user == current_user ? 'text-dark' : 'text-white' %>">
+  <strong><%= message.user.username %></strong>
+  <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+</small>
+<p><%= message.content %></p> 
