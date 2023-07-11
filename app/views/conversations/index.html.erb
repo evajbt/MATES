@@ -43,7 +43,11 @@
 
           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink_<%= conversation.id %>">
             <%= link_to "Delete conversation", conversation_path(conversation), method: :delete, data: { confirm: "Are you sure?" }, class: "dropdown-item" %>
-            <%= link_to "Show profile", profile_path(conversation.sender.id), class: "dropdown-item", data: { toggle: "modal", target: "#profileModal" } %>
+            <% if conversation.sender == current_user %>
+              <%= link_to "Show profile", profile_path(conversation.recipient.id), class: "dropdown-item", data: { toggle: "modal", target: "#profileModal" } %>
+            <% else %>
+              <%= link_to "Show profile", profile_path(conversation.sender.id), class: "dropdown-item", data: { toggle: "modal", target: "#profileModal" } %>
+            <% end %>
           </div>
         </div>
       </div>
