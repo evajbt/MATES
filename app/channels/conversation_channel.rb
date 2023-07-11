@@ -8,6 +8,14 @@ class ConversationChannel < ApplicationCable::Channel
     # Any cleanup needed when channel is unsubscribed
   end
 
+  def delete_conversation(data)
+    conversation = Conversation.find(data['conversation_id'])
+    if conversation.destroy
+      broadcast_to(conversation, { event: 'deleted', conversation_id: conversation.id })
+    end
+  end
+end
+
   # def send_message(data)
   #   conversation = Conversation.find(data["conversation_id"])
   #   message = conversation.messages.create(user: current_user, content: data["content"])
@@ -20,4 +28,3 @@ class ConversationChannel < ApplicationCable::Channel
 #   def render_message(message)
 #     ApplicationController.renderer.render(partial: 'messages/message', locals: { message: message })
 #   end
-end
