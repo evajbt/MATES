@@ -16,5 +16,8 @@ application.register("notifications", NotificationsController)
 import ProfilesController from "./profiles_controller"
 application.register("profiles", ProfilesController)
 
+import TypedjsController from "./typedjs_controller"
+application.register("typedjs", TypedjsController)
+
 import UserGamesController from "./user_games_controller"
 application.register("user-games", UserGamesController)

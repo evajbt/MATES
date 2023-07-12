@@ -12,7 +12,7 @@
      <% end %>
   </div>
 
-<div class="conversation-icon notification <%= 'unread' if current_user.notification.messages_unread %>" data-controller="notifications" >
+<div class="conversation-icon notification <%= 'unread' if current_user&.notification&.messages_unread %>" data-controller="notifications" >
   <%= link_to conversations_path do %>
     <i class="fas fa-comment fa-lg" style="color: white;"></i>
   <% end %>
