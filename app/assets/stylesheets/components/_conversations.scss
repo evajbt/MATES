@@ -205,3 +205,24 @@
   font-size: 16px;
   color: #FA00FF;
 }
+
+.notification {
+  position: relative;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: -5px;  // Ajustez ces valeurs en fonction de l'emplacement exact souhaité pour le point
+    right: -5px;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border-radius: 50%;
+    display: none;  // Cachez la notification par défaut
+  }
+
+  &.unread:after {
+    display: block;  // Affichez la notification quand il y a des messages non lus
+  }
+}
+

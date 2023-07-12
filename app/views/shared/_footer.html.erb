@@ -12,11 +12,11 @@
      <% end %>
   </div>
 
-  <div class="conversation-icon">
-    <%= link_to conversations_path do %>
+<div class="conversation-icon notification <%= 'unread' if current_user.notification.messages_unread %>" data-controller="notifications" >
+  <%= link_to conversations_path do %>
     <i class="fas fa-comment fa-lg" style="color: white;"></i>
-     <% end %>
-  </div>
+  <% end %>
+</div>
 
   <div class="profile-icon">
     <% if user_signed_in? %>

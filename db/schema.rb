@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_08_124618) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_11_215536) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -83,6 +83,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_08_124618) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
+  create_table "notifications", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.boolean "messages_unread"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_notifications_on_user_id"
+  end
+
   create_table "user_games", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "game_id", null: false
@@ -117,6 +125,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_08_124618) do
   add_foreign_key "likes", "users", column: "liker_id"
   add_foreign_key "matches", "likes"
   add_foreign_key "messages", "users"
+  add_foreign_key "notifications", "users"
   add_foreign_key "user_games", "games"
   add_foreign_key "user_games", "users"
 end

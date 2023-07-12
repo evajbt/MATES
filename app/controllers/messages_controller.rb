@@ -17,6 +17,7 @@ class MessagesController < ApplicationController
     else
       # handle save failure
     end
+    @conversation.sender.notification.update(messages_unread: true)
   end
 
   private

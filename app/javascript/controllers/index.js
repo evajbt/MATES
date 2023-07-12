@@ -10,5 +10,11 @@ application.register("conversation-subscription", ConversationSubscriptionContro
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import NotificationsController from "./notifications_controller"
+application.register("notifications", NotificationsController)
+
+import ProfilesController from "./profiles_controller"
+application.register("profiles", ProfilesController)
+
 import UserGamesController from "./user_games_controller"
 application.register("user-games", UserGamesController)
