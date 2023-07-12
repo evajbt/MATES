@@ -2,7 +2,14 @@
   <div class="row">
 
     <% if @search_results.empty? %>
-      <p>No mates found for you</p>
+      <div class="suggestion-div">
+              <div>
+                <h2>No Mates found</h2>
+                <%= link_to search_path do %>
+                <button class="custom-button">Try another research</button>
+                <% end %>
+              </div>
+            </div>
     <% else %>
 
         <div class="cards-container" data-controller="user-games">
@@ -42,16 +49,7 @@
 
             </div>
             <% end %>
-            <div class="suggestion-div hidden">
-              <div>
-                <h2>Try Again</h2>
-                <p>There are no more profiles to display. Please try again later.</p>
 
-                <%= link_to root_path do %>
-                <button class="btn custom-button">Try again mate</button>
-                <% end %>
-              </div>
-            </div>
           </div>
         </div>
     <% end %>
