@@ -14,6 +14,7 @@ class User < ApplicationRecord
   has_many :conversations
   has_one :notification, dependent: :destroy
   after_create :create_notification
+  has_one :search, dependent: :destroy
   def matches
     received_match + given_match
   end
