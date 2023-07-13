@@ -12,8 +12,14 @@ class User < ApplicationRecord
   has_many :given_match, through: :given_likes, source: :matches
   has_many :messages
   has_many :conversations
+  has_one :notification, dependent: :destroy
+  after_create :create_notification
   has_one :search, dependent: :destroy
   def matches
     received_match + given_match
+  end
+
+  def create_notification
+    Notification.create(user: self, messages_unread: false)
   end
 end

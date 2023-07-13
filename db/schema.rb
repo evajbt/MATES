@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema[7.0].define(version: 2023_07_11_215536) do
+=======
 ActiveRecord::Schema[7.0].define(version: 2023_07_13_112203) do
+>>>>>>> master
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -83,12 +87,21 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_13_112203) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
+<<<<<<< HEAD
+  create_table "notifications", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.boolean "messages_unread"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_notifications_on_user_id"
+=======
   create_table "searches", force: :cascade do |t|
     t.jsonb "search_params"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_searches_on_user_id"
+>>>>>>> master
   end
 
   create_table "user_games", force: :cascade do |t|
@@ -126,7 +139,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_13_112203) do
   add_foreign_key "likes", "users", column: "liker_id"
   add_foreign_key "matches", "likes"
   add_foreign_key "messages", "users"
+<<<<<<< HEAD
+  add_foreign_key "notifications", "users"
+=======
   add_foreign_key "searches", "users"
+>>>>>>> master
   add_foreign_key "user_games", "games"
   add_foreign_key "user_games", "users"
 end

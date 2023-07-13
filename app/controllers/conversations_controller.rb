@@ -1,4 +1,5 @@
 class ConversationsController < ApplicationController
+  before_action :turn_off_notifs, only: [:index, :show]
   def show
     @conversation = Conversation.find_by_id(params[:id])
 
@@ -31,4 +32,11 @@ class ConversationsController < ApplicationController
       # handle failure
     end
   end
+
+  private
+
+  def turn_off_notifs
+    current_user.notification.update(messages_unread: false)
+  end
+
 end
