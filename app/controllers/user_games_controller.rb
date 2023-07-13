@@ -39,6 +39,10 @@ class UserGamesController < ApplicationController
   end
 
   def search
+
+    if params[:name].nil? && current_user.search
+      params.merge!(current_user.search.search_params)
+    end
     # Récupérer l'id du profile/current_user
     @profile = current_user
     # Récupérer les jeux associés au profil
@@ -70,6 +74,9 @@ class UserGamesController < ApplicationController
     end
 
     @search_results = query.reject{|user| Like.find_by(liker: current_user, liked: user)}
+
+    current_user.build_search(search_params: search_params.to_h).save unless current_user.search
+    current_user.search.update(search_params: search_params.to_h) if current_user.search
   end
 
   private
