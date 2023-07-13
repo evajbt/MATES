@@ -13,7 +13,7 @@ solution: Mates offer a unique solution by matching players not only based on th
 originality: Mates uses a unique algorithm that matches players' profiles according to numerous criteria on the app.
 
 # Image Path
-meta_image_path: app/assets/images/logo.png
+meta_image_path: logo.png
 
 # Keywords (Used for SEO)
 keywords:
