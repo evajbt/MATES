@@ -4,7 +4,7 @@
     <% if @search_results.empty? %>
       <div class="suggestion-div">
               <div>
-                <h2>No Mates found</h2>
+              <h2>No Mates found.</h2>
                 <%= link_to search_path do %>
                 <button class="custom-button">Try another research</button>
                 <% end %>
@@ -51,7 +51,7 @@
             <% end %>
       <div class="suggestion-div hidden">
               <div>
-                <h2>No Mates found</h2>
+                <h2>No more Mates for this game.</h2>
                 <%= link_to search_path do %>
                 <button class="custom-button">Try another research</button>
                 <% end %>
@@ -62,4 +62,3 @@
     <% end %>
   </div>
 </div>
-
