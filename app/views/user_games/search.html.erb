@@ -16,7 +16,7 @@
           <div class="cards">
             <% @search_results.each_with_index do |search_result, index| %>
               <div class="search-card "
-                style="background-image: url('<%= search_result.photo.present? ? search_result.photo.url : asset_path('user_pp.png') %>');
+                style="background-image: url('<%= search_result.photo.attached? ? url_for(search_result.photo) : asset_path('user_pp.png') %>');"
                         z-index: calc(100 - <%= index %>);"
                 data-user-games-target="card"
                 data-profile-id="<%= search_result.id %>"
