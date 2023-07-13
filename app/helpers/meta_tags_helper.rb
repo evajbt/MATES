@@ -36,8 +36,4 @@ module MetaTagsHelper
   def meta_keywords
     DEFAULT_META["keywords"].join(', ')
   end
-
-  def meta_launch_date
-    DEFAULT_META["launch_date"]
-  end
 end
