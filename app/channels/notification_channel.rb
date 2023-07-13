@@ -1,6 +1,5 @@
 class NotificationChannel < ApplicationCable::Channel
   def subscribed
-    notification = current_user.notification.messages_unread
-    stream_for notification
+    stream_from "notification_channel_#{current_user.id}"
   end
 end
