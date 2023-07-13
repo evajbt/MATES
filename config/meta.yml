@@ -1,0 +1,33 @@
+# Basic Information
+name: Mates
+description: Find the perfect teammates for your gaming adventures. Mates uses a unique algorithm to match players based on personality, level, gender and other criteria, creating lasting teams with shared interests.
+
+# Target Information
+target_audience: Avid video gamers looking for teammates compatible with their gaming preferences and goals.
+
+# Pain and Solution Information
+pain_point: Matchmaking in gaming is often difficult, considering only one criterion - level, which results in ephemeral teams.
+solution: Mates offer a unique solution by matching players not only based on their gaming level, but also on their personality and gaming-style to foster long-lasting teams.
+
+# Originality Information
+originality: Mates uses a unique algorithm that matches players' profiles according to numerous criteria on the app.
+
+# Image Path
+meta_image_path: app/assets/images/logo.png
+
+# Keywords (Used for SEO)
+keywords:
+  - Gaming
+  - Teammates
+  - Matchmaking
+  - Personality
+  - Level
+  - Gender
+  - Discord
+  - Valorant
+  - League of Legends
+  - Teamfight tactics
+  - Legend of Runeterra
+
+# Other Information
+launch_date: 2023-07-13
