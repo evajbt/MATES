@@ -12,7 +12,7 @@
         <i class="fa-regular fa-heart"></i>
       </button>
 
-       <div class="d-flex flex-row ms-4">
+      <div class="d-flex flex-row ms-4">
         <%= image_tag(@match.like.liker.photo.present? ? @match.like.liker.photo : 'user_pp.png', class: "rounded-circle img-thumbnail", width: 200) %>
       </div>
     </div>
@@ -20,13 +20,17 @@
 
     <div class="conv-form col-10 mx-auto mt-5">
       <%= simple_form_for [ @match.conversations.first, Message.new ], html: { class: 'new-message' } do |f| %>
-        <%= f.input :content, label: false, input_html: { class: 'input-conv', placeholder: 'Say hi to your mate !' }, required: true %>
+        <div class="input-container">
+          <%= f.input :content, label: false, input_html: { class: 'input-message', placeholder: 'Say hi to your mate !' }, required: true %>
           <%= f.hidden_field :first,value:"true"%>
-
-        <%= submit_tag 'Send', class: 'send-button' %>
+          <%= button_tag(type: 'submit', class: 'submit-button') do %>
+            <i class="fas fa-paper-plane"></i>
+          <% end %>
+        </div>
       <% end %>
     </div>
 
     <br>
       <%#= link_to "Continue to swipe", search_profiles_path %>
-    </div>
+ </div>
+

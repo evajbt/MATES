@@ -1,5 +1,5 @@
 <small class="<%= message.user == current_user ? 'text-dark' : 'text-white' %>">
-  <strong><%= message.user.username %></strong>
-  <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+  <%#= message.user.username %>
+  <%#= message.created_at.strftime("%a %b %e at %l:%M %p") %>
 </small>
-<p><%= message.content %></p> 
+<p><%= message.content %></p>

@@ -144,10 +144,12 @@
   padding: 10px 20px;
   border-radius: 20px;
   margin: 0 10px;
+  max-width: 250px;
+  overflow-wrap: break-word;
 }
 
 .bubble-user {
-  background-color: white;
+  background-color: #FCC4FD;
 }
 
 .bubble-user p {
@@ -155,7 +157,7 @@
 }
 
 .bubble-other {
-  background-color: black;
+  background-color: #33196B;
   color: white;
 }
 
