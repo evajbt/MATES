@@ -35,3 +35,17 @@
   cursor: pointer;
   z-index: 1;
 }
+.game-logo-notlogged{
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  vertical-align: middle;
+  border: thin solid;
+  border-color: #33196B;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+}
+.game-logo-notlogged p{
+  text-align: left;
+}

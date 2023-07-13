@@ -28,8 +28,10 @@
               <h2><%= @profile.username %> | <%= @profile.gender.capitalize %> | <%= @profile.age %> Years</h2>
             </div>
           <% end %>
+          <% if @profile == current_user %>
             <div class="games-logo-container">
               <% if @profile.games.present? %>
+
                 <div class="game-logo">
                 <% shown_games = [] %>
                 <% @profile.games.each do |game| %>
@@ -40,6 +42,8 @@
                 <% end %>
                 </div>
               <% end %>
+              <% end %>
+
                 <% if @profile == current_user %>
                   <div class="add-game">
                     <%= link_to new_profile_user_game_path(@profile), class: "circle-btn" do %>
@@ -48,6 +52,33 @@
                   </div>
                 <% end %>
             </div>
+            <div>
+            <% if @profile != current_user %>
+              <% if @profile.games.present? %>
+
+                <div class="game-logo">
+                <% shown_games = [] %>
+                <% @profile.games.each do |game| %>
+                  <% if game.logo.present? && !shown_games.include?(game.name) %>
+                    <% shown_games << game.name %>
+                    <div class="game-logo-notlogged">
+                      <%= image_tag("game-logo/#{game.logo}", alt: game.name, class: "rounded-circle img-thumbnail medium-round-logo", title: game.name) %>
+                      <div class="mx-3 text-left">
+                        <% user_game = @profile.user_games.find_by(game_id: game.id) %>
+                        <% if user_game %>
+                          <p>Level: <%= user_game.level %></p>
+                          <p>Mood: <%= user_game.mood %></p>
+                        <% else %>
+                          <span>No user game information</span>
+                        <% end %>
+                      </div>
+                    </div>
+                  <% end %>
+                <% end %>
+                </div>
+              <% end %>
+            </div>
+            <% end %>
       </div>
 
     <% if @profile == current_user %>
